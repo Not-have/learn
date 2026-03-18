@@ -3,7 +3,6 @@
 ## 可观测性架构图（RUM + 网关 + APM + CLS）
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'fontSize':'11px', 'fontFamily':'sans-serif', 'nodeBorder':'1px', 'clusterBorder':'1px'}}}%%
 flowchart TB
     subgraph RUM["📱 用户终端层 (RUM)"]
         Mini["💬 小程序<br/>━━━━━━<br/>RUM SDK"]
@@ -79,12 +78,12 @@ flowchart TB
     APM ==> Viz
     TraceID ==> Viz
 
-    classDef rumStyle fill:#E3F2FD,stroke:#1565C0,stroke-width:1px,color:#0D47A1
-    classDef gatewayStyle fill:#FFF3E0,stroke:#E65100,stroke-width:1px,color:#BF360C
-    classDef tkeStyle fill:#E8F5E9,stroke:#2E7D32,stroke-width:1px,color:#1B5E20
-    classDef dataStyle fill:#F3E5F5,stroke:#6A1B9A,stroke-width:1px,color:#4A148C
-    classDef vizStyle fill:#FFF8E1,stroke:#F9A825,stroke-width:1px,color:#E65100
-    classDef coreStyle fill:#E1F5FE,stroke:#0277BD,stroke-width:1px,color:#01579B
+    classDef rumStyle fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef gatewayStyle fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef tkeStyle fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef dataStyle fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px,color:#4A148C
+    classDef vizStyle fill:#FFF8E1,stroke:#F9A825,stroke-width:2px,color:#E65100
+    classDef coreStyle fill:#E1F5FE,stroke:#0277BD,stroke-width:2px,color:#01579B
 
     class Mini,RUM_Core rumStyle
     class Kong,GatewayLog,TraceInject,CLS_GW,APM_GW gatewayStyle

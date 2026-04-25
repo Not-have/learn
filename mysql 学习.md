@@ -14,7 +14,9 @@
 
 ![image-20231004154653759](https://not-have.github.io/file/images/image-20231004154653759.png)
 
-#### 1）启动 mysql 
+#### 1）win
+
+##### 启动 mysql 
 
 ```bash
 # net start 查看所有正在运行的服务
@@ -26,7 +28,7 @@ net start MySQL80
 
  ![image-20231004155703114](https://not-have.github.io/file/images/image-20231004155703114.png)
 
-#### 2）执行指令
+##### 执行指令
 
 ```bash
 mysql -hlocalhost -uroot -p
@@ -49,6 +51,37 @@ alter user 'root'@'localhost' identified with mysql_native_password by 'root';
 ![image-20231006212431164](https://not-have.github.io/file/images/image-20231006212431164.png)
 
 进行以上的操作，你就链接成功了。
+
+#### 2）mac
+
+##### 指令
+
+```bash
+mysql --version
+```
+
+![image-20260425165920630](images/image-20260425165920630.png)
+
+```bash
+# 启动
+mysql.server start
+
+# 停止
+mysql.server stop
+
+# 重启
+mysql.server restart
+```
+
+![image-20260425172955792](images/image-20260425172955792.png)
+
+
+
+
+
+
+
+
 
 ### 2、mysql 不是内部或外部命令
 

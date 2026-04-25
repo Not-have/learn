@@ -81,7 +81,20 @@ mysql.server restart
 
 
 
+##### 安装
 
+```bash
+brew install mysql
+```
+
+![image-20260425190156126](images/image-20260425190156126.png)
+
+![image-20260425194404359](images/image-20260425194404359.png)
+
+```bash
+lsof -nP -iTCP:3306 -sTCP:LISTEN
+mysqladmin -h127.0.0.1 -P3306 -uroot -p ping
+```
 
 ### 2、mysql 不是内部或外部命令
 

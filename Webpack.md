@@ -387,7 +387,7 @@ module.exports = {
 }
 ```
 
-![image preview](F:\图片\Morkdown\acrsm-ad585.png)一般不建议改配置文件名。
+一般不建议改配置文件名。
 
  ![aadfv-g39nl](./images/202203260320423.png)
 

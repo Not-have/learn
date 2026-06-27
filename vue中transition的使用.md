@@ -4,7 +4,7 @@
 
 内置组件可以直接在模板中使用，而不需注册。
 
-<keep-alive>、<transition>、<transition-group> 和 <teleport> 组件都可以被打包工具 tree-shake。所以它们只会在被使用的时候被引入。如果你需要直接访问它们，也可以将它们显性导入。
+`keep-alive`、`transition`、`transition-group` 和 `teleport` 组件都可以被打包工具 tree-shake。所以它们只会在被使用的时候被引入。如果你需要直接访问它们，也可以将它们显性导入。
 
 官网文档：<https://v3.cn.vuejs.org/api/built-in-components.html#transition>
 

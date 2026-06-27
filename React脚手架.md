@@ -3295,7 +3295,7 @@ export default class App extends React.Component{
 "proxy": "http://localhost:3000"
 ```
 
-这下在请求的时候，就不用在写<http://localhost:3000，直接写“http://localhost:3000”后面的；同时修改了配置文件，要重新运行。>
+这下在请求的时候，就不用再写 `http://localhost:3000`，直接写后面的路径；同时修改了配置文件，要重新运行。
 
 ### 2）在src下创建 *setupProxy.js*
 

@@ -1,12 +1,12 @@
 # 一、认识
 
-文档：https://v3.cn.vuejs.org/guide/render-function.html#dom-%E6%A0%91
+文档：<https://v3.cn.vuejs.org/guide/render-function.html#dom-%E6%A0%91>
 
-​		h() 到底会返回什么呢？其实不是一个*实际*的 DOM 元素。它更准确的名字可能是 createNodeDescription，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点，包括及其子节点的描述信息。我们把这样的节点描述为“虚拟节点 (virtual node)”，也常简写它为  VNode 。“虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 VNode 树的称呼。
+​  h() 到底会返回什么呢？其实不是一个*实际*的 DOM 元素。它更准确的名字可能是 createNodeDescription，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点，包括及其子节点的描述信息。我们把这样的节点描述为“虚拟节点 (virtual node)”，也常简写它为  VNode 。“虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 VNode 树的称呼。
 
 # 二、使用
 
-文档：https://v3.cn.vuejs.org/guide/render-function.html#h-%E5%8F%82%E6%95%B0
+文档：<https://v3.cn.vuejs.org/guide/render-function.html#h-%E5%8F%82%E6%95%B0>
 
 ## 1、h() 参数
 
@@ -47,7 +47,7 @@ h(
 
 ## 2、简单的使用
 
- ![image-20211225202723505](https://not-have.github.io/file/images/202203280035618.png)
+ ![image-20211225202723505](./images/202203280035618.png)
 
 ## 3、实现一个计数器案例
 
@@ -164,11 +164,11 @@ export default {
 
 ## 1、jsx的认识
 
-jsx我们通常会通过Babel来进行转换（React编写的jsx就是通过babel转换的）； 
+jsx我们通常会通过Babel来进行转换（React编写的jsx就是通过babel转换的）；
 
 对于Vue来说，我们只需要在Babel中配置对应的插件即可；
 
-文档：https://v3.cn.vuejs.org/guide/render-function.html#jsx
+文档：<https://v3.cn.vuejs.org/guide/render-function.html#jsx>
 
 ## 2、下载Babel插件支持vue（现在貌似脚手架直接支持）
 
@@ -178,7 +178,7 @@ npm install @vue/babel-plugin-jsx -D
 
 ## 3、配置babel
 
-1）在根目录下创建 .babel.config.js 
+1）在根目录下创建 .babel.config.js
 
 2）在.babel.config.js 里面加入，如下代码
 
@@ -308,7 +308,4 @@ export default {
 </script>
 ```
 
-
-
 <i> <font color=red>注：如果你要 h 函数来写组件，请仔细查看文档，以上讲解，只是入门级。</font></i>
-

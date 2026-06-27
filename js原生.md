@@ -8,7 +8,7 @@ console.log(Object.prototype.hasOwnProperty.call(obj, 'a'));//true
 
 ## 2、事件防抖
 
-<font color=Turquoise1>注：</font> 
+<font color=Turquoise1>注：</font>
 
 ①本来事件的触发比较频繁,但是,我们只希望这无数次的事件触发中,有部分事件是有效的（如：用户有短暂的停止时才调用函数）。特别是在触发一次，就发一次请求，会有无数次的抖动。
 
@@ -87,13 +87,13 @@ console.log(Object.prototype.hasOwnProperty.call(obj, 'a'));//true
 
 ```javascript
 /**
- * 元素尺寸属性	说明
- * clientWidth	获取元素可视部分的宽度，即 CSS 的 width 和 padding 属性值之和，元素边框和滚动条不包括在内，也不包含任何可能的滚动区域
- * clientHeight	获取元素可视部分的高度，即 CSS 的 height 和 padding 属性值之和，元素边框和滚动条不包括在内，也不包含任何可能的滚动区域
- * offsetWidth	元素在页面中占据的宽度总和，包括 width、padding、border 以及滚动条的宽度
- * offsetHeight	元素在页面中占据的高度总和，包括 height、padding、border 以及滚动条的宽度
- * scrollWidth	当元素设置了 overflow:visible 样式属性时，元素的总宽度，也称滚动宽度。在默认状态下，如果该属性值大于 clientWidth 属性值，则元素会显示滚动条，以便能够翻阅被隐藏的区域
- * scrollHeight	当元素设置了 overflow:visible 样式属性时，元素的总高度，也称滚动高度。在默认状态下，如果该属性值大于 clientWidth 属性值，则元素会显示滚动条，以便能够翻阅被隐藏的区域
+ * 元素尺寸属性 说明
+ * clientWidth 获取元素可视部分的宽度，即 CSS 的 width 和 padding 属性值之和，元素边框和滚动条不包括在内，也不包含任何可能的滚动区域
+ * clientHeight 获取元素可视部分的高度，即 CSS 的 height 和 padding 属性值之和，元素边框和滚动条不包括在内，也不包含任何可能的滚动区域
+ * offsetWidth 元素在页面中占据的宽度总和，包括 width、padding、border 以及滚动条的宽度
+ * offsetHeight 元素在页面中占据的高度总和，包括 height、padding、border 以及滚动条的宽度
+ * scrollWidth 当元素设置了 overflow:visible 样式属性时，元素的总宽度，也称滚动宽度。在默认状态下，如果该属性值大于 clientWidth 属性值，则元素会显示滚动条，以便能够翻阅被隐藏的区域
+ * scrollHeight 当元素设置了 overflow:visible 样式属性时，元素的总高度，也称滚动高度。在默认状态下，如果该属性值大于 clientWidth 属性值，则元素会显示滚动条，以便能够翻阅被隐藏的区域
  */
 /**
  * @description: 根据选择器获取dom
@@ -190,8 +190,6 @@ export default function randomPassword(length) {
     }
     console.log(getWordCnt());
 ```
-
-
 
 ## 7、文件流下载
 
@@ -357,4 +355,3 @@ console.log(_typeof(new Date())) // date
 console.log(_typeof(new RegExp())) // regexp
 console.log(_typeof(NaN)) // number
 ```
-

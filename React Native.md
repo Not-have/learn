@@ -10,13 +10,13 @@
 npx create-expo-app --template
 ```
 
-![image-20240622031613893](https://not-have.github.io/file/images/image-20240622031613893.png)
+![image-20240622031613893](./images/image-20240622031613893.png)
 
-![image-20240622031939557](https://not-have.github.io/file/images/image-20240622031939557.png)
+![image-20240622031939557](./images/image-20240622031939557.png)
 
-![image-20240622033335532](https://not-have.github.io/file/images/image-20240622033335532.png)
+![image-20240622033335532](./images/image-20240622033335532.png)
 
-![image-20240622040308702](https://not-have.github.io/file/images/image-20240622040308702.png)
+![image-20240622040308702](./images/image-20240622040308702.png)
 
 ------
 
@@ -35,15 +35,15 @@ Error: getaddrinfo ENOENT raw.githubusercontent.com
 
 2）更换 DNS 服务器
 
-![image](https://not-have.github.io/file/images/image.png)
+![image](./images/image.png)
 
 3）修改 hosts 文件
 
-![hosts](https://not-have.github.io/file/images/hosts.png)
+![hosts](./images/hosts.png)
 
 注：`185.199.108.133` 是根据 `raw.githubusercontent.com` 获取，获取方式如下：
 
-![ip](https://not-have.github.io/file/images/ip.png)
+![ip](./images/ip.png)
 
 4）刷新 DNS 缓存
 
@@ -65,7 +65,7 @@ sudo killall -HUP mDNSResponder
 
 1）下载 Gradle 分包过慢
 
-![gradle](https://not-have.github.io/file/images/gradle.png)
+![gradle](./images/gradle.png)
 
 在 `https://mirrors.aliyun.com/macports/distfiles/gradle/` 中找到相应的版本进行下载。
 
@@ -93,7 +93,7 @@ zipStorePath=wrapper/dists
 npm run android
 ```
 
-![run](https://not-have.github.io/file/images/run.png)
+![run](./images/run.png)
 
 注：这个报错，是因为权限不足引起的，所以使用管理员运行 `cmd`。
 
@@ -111,7 +111,7 @@ npm install --save @react-navigation/native react-native-reanimated react-native
 
 ## 2、新建一个 tabs 界面
 
-![image-20240623234616176](https://not-have.github.io/file/images/image-20240623234616176.png)
+![image-20240623234616176](./images/image-20240623234616176.png)
 
 ```tsx
 import React from 'react';
@@ -188,4 +188,3 @@ export default function TabLayout() {
 其余的属性，根据官网在进行探索。
 
 ## 3、路由传参
-

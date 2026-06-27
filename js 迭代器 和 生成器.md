@@ -74,7 +74,7 @@ console.log(arr2Iterator.next());
 console.log(arr2Iterator.next());
 ```
 
- ![image-20240202230330197](https://not-have.github.io/file/images/image-20240202230330197.png)
+ ![image-20240202230330197](./images/image-20240202230330197.png)
 
 # 二、可迭代对象 (Iterable protocol)
 
@@ -292,7 +292,7 @@ const generator = fun();
 console.log(generator);
 ```
 
-![image-20240203181200223](https://not-have.github.io/file/images/image-20240203181200223.png)
+![image-20240203181200223](./images/image-20240203181200223.png)
 
 ## 3、执行流程
 
@@ -328,7 +328,7 @@ generator.next();
 console.log(generator.next());
 ```
 
-![image-20240203182658640](https://not-have.github.io/file/images/image-20240203182658640.png)
+![image-20240203182658640](./images/image-20240203182658640.png)
 
 ## 4、生成器的其他方法
 
@@ -419,7 +419,7 @@ console.log(generator.return(15));
 generator.next();
 ```
 
- ![image-20240204114329764](https://not-have.github.io/file/images/image-20240204114329764.png)
+ ![image-20240204114329764](./images/image-20240204114329764.png)
 
 ### 4）生成器 - 抛出异常
 
@@ -448,7 +448,7 @@ generator.next();
 generator.throw("异常信息"); // 捕获到异常时，这块就不会报错了
 ```
 
-![image-20240204132309845](https://not-have.github.io/file/images/image-20240204132309845.png)
+![image-20240204132309845](./images/image-20240204132309845.png)
 
 # 四、生成器替代迭代器
 
@@ -476,4 +476,3 @@ console.log(arrIterator.next());
 console.log(arrIterator.next());
 console.log(arrIterator.next());
 ```
-

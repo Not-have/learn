@@ -166,7 +166,7 @@ console.log(newArr4) // 198
 
 2）作用：函数内部的变量，只能在当前函数内部使用，而你要在函数外部使用函数内部的变量，这个时候，你就要使用闭包来完成
 
-文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures
+文档：<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures>
 
 ```javascript
 function makeFunc() {
@@ -215,7 +215,7 @@ fn()
 
 # 三、闭包的内存泄露
 
- ![image-20220205001011667](https://not-have.github.io/file/images/202203272351916.png)
+ ![image-20220205001011667](./images/202203272351916.png)
 
 ## 1、闭包内存泄露的描述
 
@@ -257,7 +257,7 @@ for (let i = 0; i < 100; i++){
 arr2 = null
 ```
 
-![image-20220220205558101](https://not-have.github.io/file/images/202203272352303.png)
+![image-20220220205558101](./images/202203272352303.png)
 
 ## 4、闭包中自由变量是怎么销毁的
 
@@ -279,13 +279,11 @@ const fn = fun()
 fn()
 ```
 
-![image-20220222235404686](https://gitee.com/Green_chicken/picture/raw/master/20220222235406.png)
-
 # 四、闭包的使用
 
 ## 1、闭包实现柯里化
 
-具体的参考阮一峰的函数式编程入门教程：https://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html
+具体的参考阮一峰的函数式编程入门教程：<https://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html>
 
 ```javascript
 // 柯里化之前
@@ -307,4 +305,3 @@ function addX(y) {
 console.log(addX(2)(1));
 addX(2)(1) // 3
 ```
-

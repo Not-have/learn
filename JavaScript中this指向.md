@@ -1,6 +1,6 @@
 # 一、this的作用
 
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this
+<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this>
 
 1、与其他语言相比，函数的  this  关键字在 JavaScript 中的表现略有不同，此外，在[严格模式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode)和非严格模式之间也会有一些差别。
 
@@ -49,7 +49,7 @@ console.log(window)
 
 2）在node下执行（其实源码里面是call来实现的）
 
-![image-20220224235630762](https://not-have.github.io/file/images/202203272352288.png)
+![image-20220224235630762](./images/202203272352288.png)
 
 ## 3、<font color=red>this在函数中的使用</font>
 
@@ -76,7 +76,7 @@ obj.foo()
 fun.apply("啊啊啊啊")
 ```
 
- ![image-20220227191556344](https://not-have.github.io/file/images/202203272353932.png)
+ ![image-20220227191556344](./images/202203272353932.png)
 
 # 三、this的绑定规则
 
@@ -153,13 +153,13 @@ const fun10 = fun9()
 fun10()
 ```
 
-![image-20220303002942614](https://not-have.github.io/file/images/202203272353126.png)
+![image-20220303002942614](./images/202203272353126.png)
 
 ## 2、隐式绑定
 
 注：通过某个对象，进行的函数调用
 
- ![image-20220227224234941](https://not-have.github.io/file/images/202203280024538.png)
+ ![image-20220227224234941](./images/202203280024538.png)
 
 ```javascript
 // case1
@@ -206,7 +206,7 @@ call、apply、bind 改变函数体内的this指向
 
 ### 1）call
 
-![image-20220227225543659](https://not-have.github.io/file/images/202203280025236.png)
+![image-20220227225543659](./images/202203280025236.png)
 
 ① call立即执行
 
@@ -235,7 +235,7 @@ function fun(age, gender){
 fun.call(obj, 222, "boy") // {name: '小明', age: 222, gender: 'boy'} '小明'
 ```
 
-![image-20220227230554191](https://not-have.github.io/file/images/202203280025795.png)
+![image-20220227230554191](./images/202203280025795.png)
 
 ### 2）apply
 
@@ -265,7 +265,7 @@ function fun(age, gender){
 fun.apply(obj, [ 222, "boy" ])
 ```
 
- ![image-20220227230929616](https://not-have.github.io/file/images/202203280026490.png)
+ ![image-20220227230929616](./images/202203280026490.png)
 
 ### 3）bind
 
@@ -296,7 +296,7 @@ function fun(age, gender){
 fun.bind(obj, 222, "boy")()
 ```
 
- ![image-20220227231141923](https://not-have.github.io/file/images/202203280026815.png)
+ ![image-20220227231141923](./images/202203280026815.png)
 
 ```javascript
 function fun(){
@@ -509,7 +509,7 @@ let f2 = new Person("age", 25)
 console.log(f2.val1, f2.val2) // age 25
 ```
 
- ![image-20220228231212002](https://not-have.github.io/file/images/202203280027756.png)
+ ![image-20220228231212002](./images/202203280027756.png)
 
 ## 6、this绑定优先级
 
@@ -577,7 +577,7 @@ box.addEventListener("click", function (){
 })
 ```
 
- ![image-20220302230449499](https://not-have.github.io/file/images/202203280027287.png)
+ ![image-20220302230449499](./images/202203280027287.png)
 
 ## 3、数组方法的this指向
 
@@ -594,7 +594,7 @@ arr.map(function (item) {
 }, "改变map的this的指向")
 ```
 
- ![image-20220302231111847](https://not-have.github.io/file/images/202203280027142.png)
+ ![image-20220302231111847](./images/202203280027142.png)
 
 # 五、this指向的特殊情况
 
@@ -657,7 +657,7 @@ let obj2 = {
 
 ​        ② 箭头函数不能作为构造函数来使用（也就是不能和new 一块使用）
 
-​	    ③ 箭头函数不适用于上面的四种绑定规则（new绑定、显示绑定、隐式绑定、默认绑定）
+​     ③ 箭头函数不适用于上面的四种绑定规则（new绑定、显示绑定、隐式绑定、默认绑定）
 
 ## 1、箭头函数的this根据外层作用域来决定
 
@@ -761,8 +761,3 @@ function fun(){
  */
 fun.myCall({})
 ```
-
-2）边界处理
-
-
-

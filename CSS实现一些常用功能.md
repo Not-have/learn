@@ -1,6 +1,8 @@
 ﻿
 @[TOC]( )
+
 # 一、划过div放大
+
 ```css
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +44,7 @@
 </body>
 </html>
 ```
+
 # 二、划过div，给图片一个遮挡，遮挡里面显示图片
 
 ```css
@@ -114,9 +117,13 @@
 ```
 
 # 三、居中
+
 ## 1、定位居中
+
 ### 1）在屏幕窗口居中
+
 ①已知大小的元素在屏幕窗口水平垂直都居中
+
 ```css
 <!DOCTYPE html>
 <html lang="en">
@@ -145,7 +152,9 @@
 </body>
 </html>
 ```
+
 ②未知大小的元素在屏幕窗口水平垂直都居中
+
 ```css
 <!DOCTYPE html>
 <html lang="en">
@@ -172,8 +181,11 @@
 </body>
 </html>
 ```
+
 ### 2）子元素在父元素中居中
+
 ①已知大小的子元素在父元素中居中
+
 ```
         父元素{
             /* 相对定位 */
@@ -192,6 +204,7 @@
 ```
 
 ②未知大小的子元素在父元素中居中
+
 ```
         父元素{
             /* 相对定位 */
@@ -207,8 +220,11 @@
             margin:auto;
         }
 ```
+
 ## 2、使用弹性布局
+
 1）使用flex布局的方式实现未知大小元素在屏幕窗口水平垂直都居中
+
 ```
         html,body{
             height:100%;
@@ -220,7 +236,9 @@
             align-items:center;
         }
 ```
+
 2）使用flex布局的方式实现未知大小的子元素在父元素中水平垂直都居中
+
 ```
         父元素{
             display:flex;
@@ -229,8 +247,11 @@
         }
     
 ```
+
 ## 3、使用css3变形来实现
+
 1）使用css3变形的方式实现未知大小的元素在屏幕窗口水平垂直都居中
+
 ```
         元素{
             position:fixed;
@@ -239,7 +260,9 @@
             transform:translateX(-50%) translateY(-50%);
         }
 ```
+
 2）使用css变形的方式来实现未知大小的子元素，在父元素中水平垂直都居中
+
 ```
         父元素{
             position:relative;
@@ -253,6 +276,7 @@
 ```
 
 # 四、让屏幕横过来，或者让某个div横着
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -303,15 +327,17 @@
         }
     </style>
 </head>
-	<body>
-	    <!-- 这是我的画布 -->
-	    <div id="main">
-	        啊啊啊啊啊
-	    </div>
-	</body>
+ <body>
+     <!-- 这是我的画布 -->
+     <div id="main">
+         啊啊啊啊啊
+     </div>
+ </body>
 </html>
 ```
+
 # 五、css标签样式  初始化
+
 ```css
 body,p,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,hr,td,input,textarea{
     margin:0;
@@ -348,4 +374,3 @@ img{
     display: block;
 }
 ```
-

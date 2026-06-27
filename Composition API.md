@@ -1,67 +1,6 @@
-[vue3文档](https://v3.cn.vuejs.org/)：https://v3.cn.vuejs.org/
+[vue3文档](https://v3.cn.vuejs.org/)：<https://v3.cn.vuejs.org/>
 
 Composition API字面意思是组合API，它是为了实现基于函数的逻辑复用机制而产生的。主要思想是，我们将它们定义为从新的 setup 函数返回的JavaScript变量，而不是将组件的功能（例如state、methods、computed等）定义为对象属性。
-
-<font color=red>注：</font>
-
-vue3.0脚手架的创建（根据个人需求而定）：
-
-①创建项目：vue create 项目名
-
-② 选择是否使用淘宝镜像（建议选，在国内比较快）：
-
-```javascript
- Your connection to the default npm registry seems to be slow.
- Use https://registry.npm.taobao.org for faster installation? (Y/n) 
-```
-
-③选择创建项目的版本：
-
- ![image-20210219003105178](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219003106.png)
-
-④插件选项 
-
- ![image-20210219004415257](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219004416.png)
-
-⑤选择vue版本
-
- ![image-20210219004624017](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219004626.png)
-
-⑥类样式语法
-
- ![image-20210219004737086](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219004738.png)
-
-⑦使用TypeScript和Babel的形式编译 JSX（我选择no）
-
-![image-20210219004959259](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219005000.png)
-
-⑧选择路由模式
-
-![image-20210219005316054](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219005317.png)
-
-⑨选择css预处理器的语法（建议选择 dart-sass，至于区别，自己百度）
-
-![image-20210219005415912](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219005416.png)
-
-⑩ESLint语法配置，默认选择第一个
-
- ![image-20210219010201074](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219010202.png)
-
-⑪ESlint的特性功能
-
-![image-20210219010443334](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219010444.png)
-
-⑫ESline配置文件时单独存放，还是直接存放在`package.json`文件里。这里选择放在单独的文件里。
-
- ![image-20210219010628215](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219010629.png)
-
-⑬是否保存配置
-
- ![image-20210219010747130](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210219010748.png)
-
-⑭如果你同时安装了`npm`和`yarn`来个包管理软件，它还会作最后一次询问，让你选择使用什么进行下载，建议npm。
-
-<hr />
 
 vue3中的基本模板：
 
@@ -90,23 +29,23 @@ export default defineComponent({
 
 文档:
 
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy>
 
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect
+<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect>
 
 ```javascript
 new Proxy(data, {
-	// 拦截读取属性值
+ // 拦截读取属性值
     get (target, prop) {
-    	return Reflect.get(target, prop)
+     return Reflect.get(target, prop)
     },
     // 拦截设置属性值或添加新属性
     set (target, prop, value) {
-    	return Reflect.set(target, prop, value)
+     return Reflect.set(target, prop, value)
     },
     // 拦截删除属性
     deleteProperty (target, prop) {
-    	return Reflect.deleteProperty(target, prop)
+     return Reflect.deleteProperty(target, prop)
     }
 })
 
@@ -339,7 +278,7 @@ export default {
 </script>
 ```
 
-## 3、setup参数的具体使用见下方：
+## 3、setup参数的具体使用见下方
 
 ### 1) props参数
 
@@ -389,8 +328,6 @@ export default defineComponent({
 })
 </script>
 ```
-
-![image-20210307230735743](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210307230737.png)
 
 ### 2）context参数
 
@@ -480,8 +417,6 @@ export default defineComponent({
 })
 </script>
 ```
-
-![image-20210307233256217](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210307233257.png)
 
 ## 4、逆向传值
 
@@ -574,8 +509,6 @@ export default {
 </script>
 ```
 
-![image-20210215172117633](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210215172119.png)
-
 调用方式如下：
 
 ```javascript
@@ -602,8 +535,6 @@ export default {
 }
 </script>
 ```
-
-![image-20210215180951656](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210215180952.png)
 
 ## 2、reactive是用来创建一个响应式对象
 
@@ -704,11 +635,7 @@ export default defineComponent({
 </style>
 ```
 
-
-
 <font color=green>注</font>：直接使用目标对象的方式来更新目标对象中的成员的值，是不可能的，只能使用代理对象的方式来更新数据（响应式数据）。
-
-
 
 ## 3、computed（计算属性）
 
@@ -1081,8 +1008,6 @@ export default {
 </script>
 ```
 
-![image-20210314173229179](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210314173230.png)
-
 2）shallowReadonly  浅只读
 
 ```javascript
@@ -1122,8 +1047,6 @@ export default {
 };
 </script>
 ```
-
-![image-20210314173739728](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210314173740.png)
 
 ## 9、toRaw 与 markRaw
 
@@ -1289,8 +1212,6 @@ export default defineComponent({
 </script>
 ```
 
-![image-20210314182425886](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210314182427.png)
-
 ## 11、customRef
 
 创建一个自定义的 ref，并对其依赖项跟踪和更新触发进行显式控制
@@ -1340,8 +1261,6 @@ export default defineComponent({
 });
 </script>
 ```
-
-![image-20210314183529452](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210314183530.png)
 
 ## 12、判断数据是不是响应式
 
@@ -1411,7 +1330,7 @@ export default {
 - 自定义hook的作用类似于vue2中的mixin（混入）技术
 - 自定义Hook的优势: 很清楚复用功能代码的来源, 更清楚易懂
 
-## 1、案例：
+## 1、案例
 
 ### 1）收集用户鼠标点击的页面坐标
 
@@ -1467,15 +1386,9 @@ export default function () {
 }
 ```
 
-![image-20210308231957330](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210308231959.png)
-
-
-
 # 五、在组合API中provide和inject使用
 
 从父向后代传递数据，父向后代传递的时候，不想层层传递就用它。
-
-<img src="https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210215234842.png" alt="图片1"  />
 
 ## 1、传统方式
 
@@ -1616,11 +1529,7 @@ export default {
 </script>
 ```
 
-![image-20210216000720253](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210216000722.png)
-
 ## 3、setup对象的方式如下
-
-![image-20210216001006786](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210216001008.png)
 
 <font color=blue> 注：其他PI参考[地址](https://vue3js.cn/vue-composition-api)：https://vue3js.cn/vue-composition-api</font>
 
@@ -1719,8 +1628,6 @@ export default defineComponent({
 </style>
 ```
 
-![image-20210314205035486](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210314205036.png)
-
 ## 3、Suspense(不确定的)
 
 允许我们的应用程序在等待异步组件时渲染一些后备内容，可以让我们创建一个平滑的用户体验。
@@ -1797,8 +1704,6 @@ export default defineComponent({
 </script>
 ```
 
-![3j3be-ykbn0](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210314214303.gif)
-
 # 六、结合路由
 
 ## 1、params路由传参
@@ -1812,15 +1717,13 @@ export default defineComponent({
 { name: "details", path: "details/:id", component: () => import("路径") }
 ```
 
-![image-20210216023154722](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210216023155.png)
-
 2）在跳转页面
 
 ```javascript
 <template>
     路由api
     <div>
-    	<!-- 下面使用了二级路由 -->
+     <!-- 下面使用了二级路由 -->
         <div id="menu">
             <router-link v-for="item in list" :key="item.id" :to="'/router-api/details/' + item.id">{{item.title}}</router-link>
         </div>
@@ -1896,8 +1799,6 @@ export default {
 </script>
 ```
 
-![image-20210216023010910](https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210216023012.png)
-
 ## 2、query传参
 
 1）跳转页面
@@ -1934,4 +1835,3 @@ export default {
 onBeforeRouteLeave((to, from) => {｝）
 
 onBeforeRouteUpdate(async (to, from) => {})
-

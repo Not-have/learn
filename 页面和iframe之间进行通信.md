@@ -1,4 +1,4 @@
-https://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html
+<https://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html>
 
 # 1、父给子传
 
@@ -116,4 +116,3 @@ https://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html
     }
 </script>
 ```
-

@@ -242,7 +242,7 @@ export default function Ui(): JSX.Element{
 
 ![image-20230723004304899](./images/image-20230723004304899.png)
 
-代码地址：https://github.com/Not-have/practise/tree/main/react-demo/src/pages/create-context-demo
+代码地址：<https://github.com/Not-have/practise/tree/main/react-demo/src/pages/create-context-demo>
 
 # 4、封装一个组合使用的案例
 
@@ -256,4 +256,4 @@ useReduce  作为默认数据源 和 修改数据的 状态
 
 实现一个 输入框 和 标签过滤的组件，该组件中有自己的状态管理机制，可以在纯组件时运行，也可以使用外部传值来运行。
 
-[案例地址](https://github.com/Not-have/practise/tree/main/react-demo)：https://github.com/Not-have/practise/blob/main/react-demo/src/pages/context-reducer-demo/index.tsx
+[案例地址](https://github.com/Not-have/practise/tree/main/react-demo)：<https://github.com/Not-have/practise/blob/main/react-demo/src/pages/context-reducer-demo/index.tsx>

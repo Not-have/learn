@@ -77,7 +77,7 @@ console.log(process.env.NODE_ENV)
 
 ## 三、vue.config.js配置
 
-[webpack](https://webpack.docschina.org/concepts/)：https://webpack.docschina.org/concepts
+[webpack](https://webpack.docschina.org/concepts/)：<https://webpack.docschina.org/concepts>
 
 以下需要下载的npm插件：
 
@@ -87,7 +87,7 @@ npm install terser-webpack-plugin --save-dev
 npm install --save compression-webpack-plugin
 ```
 
-文档：[CompressionWebpackPlugin](https://www.webpackjs.com/plugins/compression-webpack-plugin/)：https://www.webpackjs.com/plugins/compression-webpack-plugin/
+文档：[CompressionWebpackPlugin](https://www.webpackjs.com/plugins/compression-webpack-plugin/)：<https://www.webpackjs.com/plugins/compression-webpack-plugin/>
 
 ```javascript
 const TerserPlugin = require('terser-webpack-plugin')
@@ -133,9 +133,9 @@ module.exports = {
             /**
             当然需要在public——> index.html里面引入在线路径
              * 在vue.config.js里面引入了，就不要在外面引用、使用
-             	import Vue from "vue";
-             	import VueRouter from "vue-router";
-             	Vue.use(VueRouter);
+              import Vue from "vue";
+              import VueRouter from "vue-router";
+              Vue.use(VueRouter);
              */
             {
                 Vue: "vue",
@@ -152,7 +152,7 @@ module.exports = {
                 minRatio: 0.8,
                 deleteOriginalAssets: false
             }),
-			//取消console.log打印
+   //取消console.log打印
             new TerserPlugin({
                 terserOptions: {
                     ecma: undefined,
@@ -192,7 +192,7 @@ module.exports = {
 }
 ```
 
-##  四、在vue中配置*eslint*
+## 四、在vue中配置*eslint*
 
 1、在根目录下创建 **.eslintrc.js**
 
@@ -246,8 +246,6 @@ module.exports = {
 2、删除*package.json*中的一部分代码
 
 <font face="黑体" color=red>注：</font> 如果不删除也可以在*package.json*里面进行配置，配置方法同 *.eslintrc.js*里面：
-
-![image-20210118203734064](https://gitee.com/Green_chicken/picture/raw/master/img/20210118210832.png)
 
 3、在*vue.config.js*里面不要禁用*eslint*检查
 
@@ -387,8 +385,3 @@ div{
 }
 </style>
 ```
-
-
-
-
-

@@ -95,4 +95,3 @@ export function parseQueryString(url) {
     return obj;
 }
 ```
-

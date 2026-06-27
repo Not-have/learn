@@ -1,5 +1,7 @@
 ﻿@[TOC]
+
 # 一、脚手架
+
 vsc插件：
      ①切实同源策略是浏览器的一个安全功能，不同源的客户端脚本在没有明确授权的情况下，不能读写对方资源。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403000838611.png)
@@ -53,6 +55,7 @@ export default class index extends Component {
     }
 }
 ```
+
 ②在xxx.jsx里创建xxx.css(书写样式)；他的文件名与jsx的文件名一样。
 注：在xxx.jsx里引入。
 2）在app.js根组件里使用（也可在其他页面中使用）
@@ -94,6 +97,7 @@ function App() {
 }
 export default App;
 ```
+
 ②在组件里接收
 
 ```java
@@ -111,6 +115,7 @@ export default class Index extends Component {
     }
 }
 ```
+
 2）props验证数据类型的（就不能上面那样写，需要换种写法，vsc快捷键rccp）
 ①在组件页
 
@@ -134,6 +139,7 @@ export default class Index extends Component {
     }
 }
 ```
+
 ②在传值页面里
 
 ```java
@@ -231,6 +237,7 @@ export default class Mine extends Component {
 ```
 
 ## 8、逆向传值
+
 1）在子中（即是他被引用、使用）
 
 ```java
@@ -256,6 +263,7 @@ export default class Mineson extends Component {
     }
 }
 ```
+
 2）在父中
 
 ```java
@@ -303,6 +311,7 @@ export default class Xuanran extends Component {
     }
 }
 ```
+
 2）三目
 
 ```java
@@ -319,6 +328,7 @@ export default class Xuanran extends Component {
     }
 }
 ```
+
 3）循环渲染
         Key 可以在 DOM 中的某些元素被增加或删除的时候帮助 React 识别哪些元素发生了变化。因此要给数组中的每一个元素赋予一个确定的标识；一个元素的key最好是这个元素在列表中拥有的一个独一无二的字符串。（减轻比对次数）
 ①与render同级处写
@@ -351,6 +361,7 @@ export default class Xuanran extends Component {
     }
 }
 ```
+
 ②写在div里,用花括号包裹，让其当成js运行
 
 ```java
@@ -382,6 +393,7 @@ export default class Xuanran extends Component {
     }
 }
 ```
+
 注：渲染便签内的属性方法如下：
 
 ```java
@@ -400,6 +412,7 @@ export default class Xuanran extends Component {
         )
     }
 ```
+
 4）案例（点击添加，勾选删除）
 
 ```java
@@ -499,6 +512,7 @@ export default class Demoe extends Component {
     }
 }
 ```
+
 5）循环渲染-删除内容
 父组件里的传给子组件，在子组件里，设置删除按钮（在根据删除的东西，子在逆传给父）
 ①夫组件
@@ -543,6 +557,7 @@ export default class Father extends Component {
     }
 }
 ```
+
 ②子组件
 
 ```java
@@ -560,6 +575,7 @@ export default class Son extends Component {
     }
 }
 ```
+
 ![](https://img-blog.csdnimg.cn/20200403001900676.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
 
 ## 10、数据请求
@@ -572,6 +588,7 @@ npm install --save axios
 ```java
 import axios from 'axios'
 ```
+
 ③在页面或组件中请求的书写方式
 
 ```java
@@ -597,6 +614,7 @@ export default class Qing extends Component {
     }
 }
 ```
+
 ③请求get数据的两种方法
 
 ```java
@@ -620,6 +638,7 @@ export default class Qing extends Component {
             console.log(ok.data.banner);
         })
 ```
+
 2）jQuery请求
 ①下载
 npm install --save jquery
@@ -655,9 +674,11 @@ export default class Qing extends Component {
     }
 }
 ```
+
 3)fetch数据交互
 ①数据请求
 注： fetch是原生的，不需要下载
+
 ```java
 import React, { Component } from 'react'
 export default class Qing extends Component {
@@ -693,7 +714,9 @@ export default class Qing extends Component {
     }
 }
 ```
+
 ②数据发送
+
 ```java
 import React, { Component } from 'react'
 export default class Qing extends Component {
@@ -725,6 +748,7 @@ export default class Qing extends Component {
     }
 }
 ```
+
 4）在数据没请求过来的时候，让其显示一个加载动画
 
 ```java
@@ -814,35 +838,36 @@ export default class Ref extends Component {
     }
 }
 ```
+
 ②回调函数
         回调函数就是在dom节点或组件上挂载函数，函数的形参是dom节点或组件实例，达到的效果与字符串形式是一样的，都是获取其引用。
 
 ```java
 import React, { Component } from 'react'export default class Ref extends Component { 
    constructor(props){        
-   		super(props);        
-   		this.state={            
-   			text:""        
-   		}    
+     super(props);        
+     this.state={            
+      text:""        
+     }    
    }    
    fun=()=>{        
-   		this.setState({            
-   			text:this.haha.value        
-   		})    
-   	}    
-   	render() {        
-   		return (            
-   			<div>                
-   				{/* 他的ref里面是一个回调函数，这个回调函数里面必须要有一个形参，这个形参就是当前元素，他会自动的把当前元素注入到这个形参里 */}                
-   				<input type="text" onInput={this.fun} ref={(xiaoming)=>{this.haha=xiaoming}}/>  {/* xiaoming是形参，haha是后期调用的名字 */}                
-   				<p>{this.state.text}</p>            
-   			</div>        
-   		)    
-   	}}
+     this.setState({            
+      text:this.haha.value        
+     })    
+    }    
+    render() {        
+     return (            
+      <div>                
+       {/* 他的ref里面是一个回调函数，这个回调函数里面必须要有一个形参，这个形参就是当前元素，他会自动的把当前元素注入到这个形参里 */}                
+       <input type="text" onInput={this.fun} ref={(xiaoming)=>{this.haha=xiaoming}}/>  {/* xiaoming是形参，haha是后期调用的名字 */}                
+       <p>{this.state.text}</p>            
+      </div>        
+     )    
+    }}
 ```
+
 ③React.createRef() （React16.3以后才可以使用）推荐使用
         使用此方法来创建ref，将其赋值给一个变量，通过ref挂载在dom节点或组件上该ref的current属性将能拿到dom节点或组件的实例。
-
 
 ```java
 import React, { Component } from 'react'
@@ -887,7 +912,7 @@ export default class Ref extends Component {
 注：以下这样写父组件更新，子组件不会跟随夫组件更新。
 
 ```javascript
-	shouldComponentUpdate() {
+ shouldComponentUpdate() {
         return false;
     }
 ```
@@ -898,7 +923,7 @@ export default class Ref extends Component {
 
 7）componentWillUnmount在组件从 DOM 中移除之前立刻被调用。
 
-## 13、react数据请求在哪声明周期？    
+## 13、react数据请求在哪声明周期？
 
 ​          对于同步的状态改变，是可以放在componentWillMount，对于异步的，最好好放在componentDidMount。但如果此时有若干细节需要处理，比如你的组件需要渲染子组件，而且子组件取决于父组件的某个属性，那么在子组件的componentDidMount中进行处理会有问题：因为此时父组件中对应的属性可能还没有完整获取，因此就让其在子组件的componentDidUpdate中处理。
 
@@ -960,7 +985,7 @@ export default class App extends React.Component {
         return (
             <div>
                 <p>父组件： {this.state.conut}</p>
-				{/* 如果夫给子中传入的数据，不改变的时候，子组件不会渲染视图，当夫给子传入的数据一直改变 的时候，子组件才会渲染 */}
+    {/* 如果夫给子中传入的数据，不改变的时候，子组件不会渲染视图，当夫给子传入的数据一直改变 的时候，子组件才会渲染 */}
                 <DomeSon1 num={1} />
             </div>
         )
@@ -1026,8 +1051,6 @@ export default class DomeSon1 extends React.PureComponent {
 }
 ```
 
-
-
 # 二、脚手架路由
 
 ## 1、路由分类
@@ -1072,6 +1095,7 @@ function App() {
 }
 export default App;
 ```
+
 3）有路由就要有页面，在src——>pages里创建页面，即用来存放路由页面（一个路由对应一个页面，页面文件后缀是 .jsx）
 基本页面框框
 
@@ -1088,6 +1112,7 @@ export default class Xxx extends Component {
     }
 }
 ```
+
 4）设置路由规则（配置路由），在App.js里配置
 
 ```java
@@ -1125,13 +1150,16 @@ function App() {
 }
 export default App;
 ```
+
 注：①exact代表当前路由path的路径采用精确匹配，比如说Home的path如果不加上exact,那么path="/about"将会匹配他自己与path="/“这两个，所以一般path=”/"这个路由一般会加上exact，另外需要注意一点的是嵌套路由不要加exact属性，如果父级路由加上，这里例如topics加上该属性，他下面的子路由将不会生效，因为外层强制匹配了。（精准匹配，即和path里面的地址完全一样，才会匹配到，一般加到默认的上面，效率会更高些）
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403002942232.png)
+
    ② <Switch>为了解决route的唯一渲染，它是为了保证路由只渲染一个路径。
 <Switch>是唯一的，因为它仅仅只会渲染一个路径，当它匹配完一个路径后，就会停止渲染了。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403003003796.png)
 
-## 5、路由导航只在有些页面里有，有些页面里没有，比如详情页就没有；他的实现方法如下：
+## 5、路由导航只在有些页面里有，有些页面里没有，比如详情页就没有；他的实现方法如下
 
 1）首先要引入页面，在src——>app.js里
 
@@ -1168,6 +1196,7 @@ function App() {
 }
 export default App;
 ```
+
 2）吧路由导航封装成一个组件
 
 ```java
@@ -1187,6 +1216,7 @@ export default class Links extends Component {
     }
 }
 ```
+
 3）那个页面要使用导航，就引用它
 
 ```java
@@ -1210,6 +1240,7 @@ export default class Index extends Component {
 ```java
   <button onClick={()=>{this.props.history.push("/地址")}}>点我去另一个页面（即编程式页面跳转）</button>
 ```
+
 注：这块  也可以写在一个函数里。
 
 ## 7、二级路由
@@ -1246,6 +1277,7 @@ export default class List extends Component {
     }
 }
 ```
+
 注：要在在已进入二级路由的页面，就显示二级路由，只需要在原一级路由的导航里面配置就好（path后面的那个 就是地址）
 
 ```java
@@ -1341,6 +1373,7 @@ export default class Xiushu extends Component {
 ```
 
 ## 3、修改this指向的修改
+
 方式1：通过bind方法进行原地绑定，从而改变this指向；
 方式2：通过创建箭头函数；
 方式3：在constructor中提前对事件进行绑定；
@@ -1371,6 +1404,7 @@ export default class This extends Component {
     }
 }
 ```
+
 2）难的
 
 ```java
@@ -1469,11 +1503,12 @@ export default class Xiushu extends Component {
     }
 }
 ```
+
 注：有状态的情况下，不能创建函数组件。
 
 # 六、 React 表单
 
-## 1、React负责渲染表单的组件。同时仍然控制用户后续输入时所发生的变化。相应的，其值由React控制的输入表单元素称为“受控组件”。
+## 1、React负责渲染表单的组件。同时仍然控制用户后续输入时所发生的变化。相应的，其值由React控制的输入表单元素称为“受控组件”
 
 ## 2、 表单双向绑定效果案例（同步修改输入框输入内容值改变）
 
@@ -1526,6 +1561,7 @@ export default class Mine extends Component {
     }
 }
 ```
+
 2）在src——>router——>index.jsx来存放路由
 
 ```java
@@ -1550,6 +1586,7 @@ export default class index extends Component {
     }
 }
 ```
+
 3）这样就可以删除App.js了；但是要在index.js里进行修改，因为这样写就不可以引入App.js了
 
 ```java
@@ -1566,6 +1603,7 @@ ReactDOM.render(<Index />, document.getElementById('root'));
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 ```
+
 4）在写一个组件来存放导航（components——>navigation.jsx）
 
 ```java
@@ -1581,6 +1619,7 @@ export default class navigation extends Component {
         )
     }
 ```
+
 注：①上面这个有这个报错，不影响整体![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403004156753.png)
 ②也可以使用NavLink，可以设置当行的样式类（因为他有一个默认的样式类）；写法把Link换成NavLink就好。
 
@@ -1602,6 +1641,7 @@ export default class Mine extends Component {
 ```
 
 ## 2、[懒加载](https://www.npmjs.com/package/react-loadable)
+
 1）下载：
 npm install --save react-loadable
 2）在src——>util——>loadable.js
@@ -1628,6 +1668,7 @@ export default (loader,loading = loadingComponent)=>{
     });
 }
 ```
+
 3）在存放的路由的组件进行使用
 
 ```java
@@ -1664,11 +1705,10 @@ export default class index extends Component {
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403004402726.png)
 
 # 八、redux
+
 注：[①](http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html)      [②](http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html)      [③](http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_three_react-redux.html)
 
-文档：http://cn.redux.js.org/
-
-
+文档：<http://cn.redux.js.org/>
 
 ## 1、 redux是什么
 
@@ -1703,12 +1743,15 @@ export default class index extends Component {
 4）subscribe()添加一个变化监听器，每当改变store的时候就会执行。
 
 ## 6、 redux执行流程
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403004742520.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
 
 ## 7、使用
 
 ### 1）下载
+
 npm install --save redux
+
 ### 2）创建文件redux
 
 ①redux——>reducer.js   设置数据处理返回结果
@@ -1728,6 +1771,7 @@ export function data(state=obj.age,action){//action来调用修改的方式
     }
 }
 ```
+
 ②创建store（redux——>store.js）
 
 ```java
@@ -1738,29 +1782,32 @@ import {data} from "./reducer"
 //实例化一下，在外面就可以使用了
 export var store=createStore(data);//吧data传进来，用模块的方式关联起来
 ```
+
 ③在组件中调用
 
 ```javascript
 import React, { Component } from 'react'
 import {store} from '../redux/store'
 export default class redux extends Component {    
-	constructor(props){        
-	super(props);        
-		this.state={            
-			text:store.getState()        
-		}    
-	}    
-	render() {        
-		return (            
-			<div>                
-				<h1>Rudex</h1>                
-				{this.state.text}            
-			</div>        
-		)    
-	}
+ constructor(props){        
+ super(props);        
+  this.state={            
+   text:store.getState()        
+  }    
+ }    
+ render() {        
+  return (            
+   <div>                
+    <h1>Rudex</h1>                
+    {this.state.text}            
+   </div>        
+  )    
+ }
 }
 ```
+
 ### 3）修改数据
+
 ①在src——>redux——>action.js
 
 ```javascript
@@ -1774,6 +1821,7 @@ export var del=(num)=>{//这个是删除
     return {type:"DEL",data:num}
 }
 ```
+
 ②在src——>redux——>reduce.js里面添加判断，调用action.js里的东西进行数据的修改
 
 ```javascript
@@ -1800,10 +1848,12 @@ export function data(state=obj.age,action){//action来调用修改的方式
     }
 }
 ```
+
 ③在页面中引用 action.js
 注：a、import * as action星号是匹配符，匹配这个action中的所有export    function暴露的函数。
        b、同时也要在页面中进行监听；
        c、在调用的时候，都要加上修改的监听，负责没加的页面 或者组件里的数据不会改变。
+
 ```javascript
 import React, { Component } from 'react';
 //下面他俩要放到正数的第二位，负责会报错
@@ -1842,6 +1892,7 @@ export default class redux extends Component {
     }
 }
 ```
+
 ### 4）redux数据请求，在组件里面进行数据请求然后再发送给redux
 
 ①redux——>reducer.js
@@ -1859,6 +1910,7 @@ export function data(state=obj,action){
     }
 }
 ```
+
 ②进行暴露redux——>store.js
 
 ```javascript
@@ -1868,6 +1920,7 @@ import {data} from './reducer';
 
 export var store = createStore(data);
 ```
+
 ③在A组件里面请求数据，并发送到Redux里
 
 ```javascript
@@ -1920,6 +1973,7 @@ export default class whole extends Component {
     }
 }
 ```
+
 ④在redux——>action.js
 
 ```javascript
@@ -1927,6 +1981,7 @@ export var add=(num)=>{//在A组件里  他会自动调用这个函数
     return {type:'EEL',data:num}
 }
 ```
+
 ⑤redux——>reducer.js
 
 ```javascript
@@ -1945,6 +2000,7 @@ export function data(state=obj,action){
     }
 }
 ```
+
 ⑥在B组件中接收使用
 
 ```javascript
@@ -2017,8 +2073,6 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root'));
 ```
-
-
 
 # 九、UI组件的引入
 
@@ -2107,61 +2161,62 @@ npm install babel-plugin-import --save-dev
 # 十、对数据进行处理
 
 ## 1、从后台请求数据，根据不同的后端返回的不同字段，进行筛选自己需要的数据（以年份为例）
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403005543477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
 
 ```javascript
 import React, { Component } from 'react'
 import axios from "axios";
 export default class whole extends Component {    
-	constructor(props){        	
-	super(props);        
-		this.state={            
-			list:[]        
-		}    
-	}    
-	componentWillMount(){        
-		axios({            
-			url:'/paging/one',            
-			method:'get'        
-		}).then((ok)=>{            
-			console.log(ok.data.datalist);            
-			this.setState({                
-				list:ok.data.datalist            
-			})        
-		})    
-	}    
-	ck20(e) {        
-		//每点击一次  请求一次数据        
-		axios({            
-			url:'/paging/one',            
-			method:'get'        
-		}).then((ok)=>{            
-			console.log(ok.data.datalist);            
-			//定义一个空数组            
-			let arr = [];            
-			//循环本来的数组            
-			for(let i=0;i<ok.data.datalist.length;i++) {                
-			//如果便利出来的year 恒等于 点击事件传过来的参数 
-				if(ok.data.datalist[i].year===e) {                    
-					//把相等的push到arr里，并且把他赋值给list
-					arr.push(ok.data.datalist[i])                    
-					this.setState({                        
-						list:arr                    
-					})                
-				}            
-			}        
-		})    
-	}    
-	render() {        
-		return (            
-			<div>               
-				<button value="a">全部</Radio.Button>               
-				<button value="a" onClick={()=>{this.ck20(2020)}}>2020年</button>
-				<button value="b" onClick={()=>{this.ck20(2019)}}>2019年</button>
-				<button value="c" onClick={()=>{this.ck20(2018)}}>2018年</button>
-			</div>        
-		)    
-	}
+ constructor(props){         
+ super(props);        
+  this.state={            
+   list:[]        
+  }    
+ }    
+ componentWillMount(){        
+  axios({            
+   url:'/paging/one',            
+   method:'get'        
+  }).then((ok)=>{            
+   console.log(ok.data.datalist);            
+   this.setState({                
+    list:ok.data.datalist            
+   })        
+  })    
+ }    
+ ck20(e) {        
+  //每点击一次  请求一次数据        
+  axios({            
+   url:'/paging/one',            
+   method:'get'        
+  }).then((ok)=>{            
+   console.log(ok.data.datalist);            
+   //定义一个空数组            
+   let arr = [];            
+   //循环本来的数组            
+   for(let i=0;i<ok.data.datalist.length;i++) {                
+   //如果便利出来的year 恒等于 点击事件传过来的参数 
+    if(ok.data.datalist[i].year===e) {                    
+     //把相等的push到arr里，并且把他赋值给list
+     arr.push(ok.data.datalist[i])                    
+     this.setState({                        
+      list:arr                    
+     })                
+    }            
+   }        
+  })    
+ }    
+ render() {        
+  return (            
+   <div>               
+    <button value="a">全部</Radio.Button>               
+    <button value="a" onClick={()=>{this.ck20(2020)}}>2020年</button>
+    <button value="b" onClick={()=>{this.ck20(2019)}}>2019年</button>
+    <button value="c" onClick={()=>{this.ck20(2018)}}>2018年</button>
+   </div>        
+  )    
+ }
 }
 ```
 
@@ -2172,6 +2227,7 @@ export default class whole extends Component {
 ```javascript
 <Link to={{pathname:'路径',query:{id:要传的变量}}}>列表内容</Link>
 ```
+
 2）在详情页接收
 
 ```javascript
@@ -2187,11 +2243,13 @@ export default class whole extends Component {
         console.log(recvParam);
     }
 ```
+
 3）也可根据id在详情页进行筛选，选择要在详情页进行展示的数据
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403010052440.png)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403010101956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
 
 ## 3、数据筛选
+
 （类似于淘宝的  按条件 显示商品，这个一般是后台来做的，没点击一次分类按钮，向后台发送一个数据，然后接受数据，进行展示）
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403010134902.png)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403010142234.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
@@ -2259,7 +2317,7 @@ export default class whole extends Component {
 
 # 十一、Iconfont的引入
 
-## 1、首先进入阿里矢量图标官网，把需要的图标添加到项目，然后下载至本地；
+## 1、首先进入阿里矢量图标官网，把需要的图标添加到项目，然后下载至本地
 
 ## 2、font-class 引用
 
@@ -2272,6 +2330,7 @@ export default class whole extends Component {
 ```javascript
 <span class="iconfont icon-对应的图标名"></span>
 ```
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403010304417.png)
 
 ## 3、Symbol 引用
@@ -2387,6 +2446,7 @@ export default class whole extends Component {
 ```
 
 ## 3、弹出框
+
 1）index.css
 
 ```css
@@ -2398,57 +2458,58 @@ export default class whole extends Component {
     display: none;
 }
 ```
+
 2）index.jsx（这个弹出框  水平垂直都居中）
 
 ```javascript
 import React, { Component } from 'react'
 import './index.css';
 export default class login extends Component {    
-	constructor(props){        
-	super(props);        
-		this.state={                    
-		
-		}    
-	}    
-	teach=()=>{        
-		let teacher = document.getElementById('teacher');        
-		teacher.style.display='block';        
-		teacher.style.left=window.innerWidth/2 - teacher.offsetWidth/2 + 'px';
-		teacher.style.top=window.innerHeight/2 - teacher.offsetHeight/2 + 'px';        
-		// 调用按钮的函数        
-		this.creatBtn();    
-	}    
-	// 创建按钮，关闭他出框    
-	creatBtn(){        
-		let teacher = document.getElementById('teacher');        
-		let btnDiv = null;        
-		// 创建一个按钮(先给一个空，也可以定义到state里)        
-		btnDiv = document.createElement("button");        
-		btnDiv.innerHTML='×';        
-		btnDiv.style.width='50px';        
-		btnDiv.style.height='50px';        
-		// 给按钮一个定位        
-		btnDiv.style.position='absolute';        
-		// 向teacher里添加按钮        
-		teacher.appendChild(btnDiv);        
-		// 确定这个按钮，所在位置        
-		btnDiv.style.left = teacher.offsetWidth - btnDiv.offsetWidth + 'px';        
-		// 点击按钮，关闭弹出框（也可以加一个点击弹出框以外的 也关闭弹出框）
-		btnDiv.addEventListener('click', function() {
-		 	//给js动态创建的dom添加事件            
-		 	teacher.style.display='none';        
-		 })    
-	}        
-	render() {        
-		return (            
-			<div>                
-				<button onClick={this.teach}>教师注册</button>                
-					<div id='teacher'>                                    
-					</div>            
+ constructor(props){        
+ super(props);        
+  this.state={                    
+  
+  }    
+ }    
+ teach=()=>{        
+  let teacher = document.getElementById('teacher');        
+  teacher.style.display='block';        
+  teacher.style.left=window.innerWidth/2 - teacher.offsetWidth/2 + 'px';
+  teacher.style.top=window.innerHeight/2 - teacher.offsetHeight/2 + 'px';        
+  // 调用按钮的函数        
+  this.creatBtn();    
+ }    
+ // 创建按钮，关闭他出框    
+ creatBtn(){        
+  let teacher = document.getElementById('teacher');        
+  let btnDiv = null;        
+  // 创建一个按钮(先给一个空，也可以定义到state里)        
+  btnDiv = document.createElement("button");        
+  btnDiv.innerHTML='×';        
+  btnDiv.style.width='50px';        
+  btnDiv.style.height='50px';        
+  // 给按钮一个定位        
+  btnDiv.style.position='absolute';        
+  // 向teacher里添加按钮        
+  teacher.appendChild(btnDiv);        
+  // 确定这个按钮，所在位置        
+  btnDiv.style.left = teacher.offsetWidth - btnDiv.offsetWidth + 'px';        
+  // 点击按钮，关闭弹出框（也可以加一个点击弹出框以外的 也关闭弹出框）
+  btnDiv.addEventListener('click', function() {
+    //给js动态创建的dom添加事件            
+    teacher.style.display='none';        
+   })    
+ }        
+ render() {        
+  return (            
+   <div>                
+    <button onClick={this.teach}>教师注册</button>                
+     <div id='teacher'>                                    
+     </div>            
 
-					</div>        
-		)    
-	}
+     </div>        
+  )    
+ }
 }
 ```
 
@@ -2509,17 +2570,19 @@ function $(id){
 </script>
 ```
 
-
 # 十三、react中[less](https://blog.csdn.net/qq_25520603/article/details/90206399)的[使用](https://www.jianshu.com/p/94ac7250ccf0)
 
-## 1、下载：
+## 1、下载
+
      npm install less less-loader --save-dev 或者 yarn add less less-loader --save-dev；
 
 ## 2、运行
+
    npm run eject   来暴露webpack的配置文件，你会发现多了config为名的文件夹；
 注：如果这步报错，请运行： 运行 git add .    命令，然后再运行  git commit -m "init"    命令，如果这步还是报错，就是没有输入git的用户名 和 邮箱；
 
 ## 3、找到config——>webpack.config.js在里面进行修改（一共修改三处）
+
 1）添加less配置
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020040301143178.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
 
@@ -2528,12 +2591,14 @@ function $(id){
 const lessRegex = /\.less$/;
 const lessModuleRegex = /\.module\.less$/;
 ```
+
 2） 参数lessOptions为添加项
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403011507533.png)
 
 ```javascript
 lessOptions,
 ```
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403011540175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
 
 ```javascript
@@ -2543,6 +2608,7 @@ lessOptions,
         options: lessOptions,
       },
 ```
+
 3）less的配置
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403011615125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
 
@@ -2583,13 +2649,12 @@ lessOptions,
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200403011710282.png)
 
 ## 5、less的使用
-https://less.bootcss.com/
 
-
+<https://less.bootcss.com/>
 
 # 十四、登录注册
 
-## 1、点击👀控制密码的显示和显示黑点，点击按钮 得到输入框的内容；
+## 1、点击👀控制密码的显示和显示黑点，点击按钮 得到输入框的内容
 
 ```javascript
 import React, { Component } from 'react';
@@ -2646,6 +2711,7 @@ export default class log extends Component {
 在这里插入代码片
 
 ```
+
 ## 3、手机号验证，和验证码发送
 
 ```javascript
@@ -2714,14 +2780,14 @@ export default class logon extends Component {
         }
         return (
             <div>
-            	<p>
-                	手机号：<input type="text" ref={this.cell_phone} />
+             <p>
+                 手机号：<input type="text" ref={this.cell_phone} />
                     <button type="submit" onClick={this.time} disabled={click} >获取验证码</button>
                 </p>
                   {/* 这块写手机号错误时候的提示 */}
                   
                 <p>
-                	验证码：<input type="text" ref={this.verification_number} />
+                 验证码：<input type="text" ref={this.verification_number} />
                     <i className="after">{newhtml}</i>
                 </p> 
             </div>
@@ -2730,6 +2796,7 @@ export default class logon extends Component {
 }
 
 ```
+
 ## 4、让页面加载完成的时候或别的情况下，光标自动进入输入框
 
 ```javascript
@@ -2753,14 +2820,16 @@ export default class foot extends Component {
 
   withRouter 高阶组件，也叫：HOC ; 参数是一个组件,同时返回的也是一个组件,zhe类组件我们称为高阶组件。 就是让不是路由切换的组件 也具有路由切换组件的三个属性（location match history）。
 
-
 # 十六、页面传参
+
 ## 1、A页面或者组件发送数据，B页面接收
+
 1）A发送数据
 
 ```java
 <Link to={{pathname:'/路径',query:{id:"要发送的数据"}}}>发送数据 </Link>
 ```
+
 2)在B页面进行接收
 
 ```java
@@ -2775,14 +2844,15 @@ export default class foot extends Component {
             //存到sessionStorage里
             sessionStorage.setItem("hotNewsId",hotNews)
         }else{
-        	//从sessionStorage里取出
+         //从sessionStorage里取出
             hotNews=sessionStorage.getItem("hotNewsId")
         }
         console.log(hotNews);
     }
 ```
 
-## 2、在A页面跳转到B页面，在A页面的组件里发送数据。
+## 2、在A页面跳转到B页面，在A页面的组件里发送数据
+
 1）在A页面中
 
 ```javascript
@@ -2798,6 +2868,7 @@ export default class Notice extends Component {
     }
 }
 ```
+
 注：如果不在父里面写这个，他会报一个push未定义的错。
 2）在A页面的组件里
 
@@ -2821,6 +2892,7 @@ export default class Notice extends Component {
     }
 }
 ```
+
 3）在B页面中接收
 
 ```javascript
@@ -2828,10 +2900,13 @@ export default class Notice extends Component {
         console.log(this.props.location.query.id);
     }
 ```
+
 注：它也会刷新数据丢失，解决的方法如上，思路是把它传过来的数据，存入sessionStorage，当刷新页面后，从sessionStorage里取。
 
 ## 3、多个数据传递
+
 1）在A页面发送数据
+
 ```javascript
 import React, { Component } from 'react'
 export default class screen extends Component {
@@ -2849,13 +2924,14 @@ export default class screen extends Component {
     render() {
         return (
             <div>
-     			<button type="submit" onClick={this.fun}>搜索</button>
+        <button type="submit" onClick={this.fun}>搜索</button>
             </div>
         )
     }
 }
 
 ```
+
 2）在B页面进行接收
 
 ```javascript
@@ -2892,7 +2968,7 @@ export default class particulars extends Component {
         return (
             <div>
                 <div className="">
-					{data.title}   {* 这块展示的是     啊啊啊啊 *}
+     {data.title}   {* 这块展示的是     啊啊啊啊 *}
                 </div>
             </div>
         )
@@ -2902,7 +2978,9 @@ export default class particulars extends Component {
 ```
 
 # 十七、React链接转二维码、插入视频
+
 ## 1、链接转二维码
+
 1）下载
 npm install qrcode.react --save
 2）在组件或者页面中使用
@@ -2921,17 +2999,20 @@ constructor(props){
         return (
             <div>
                <QRCode
-			       value={this.state.qrUrl}  //value参数为生成二维码的链接
-			       size={200} //二维码的宽高尺寸
-			       fgColor="red"  //二维码的颜色
-		       />
+          value={this.state.qrUrl}  //value参数为生成二维码的链接
+          size={200} //二维码的宽高尺寸
+          fgColor="red"  //二维码的颜色
+         />
             </div>
         )
     }
 }
 ```
+
 注：要修改样式的话，直接加类名 就好。
+
 ## 2、[插入视频](https://video-react.js.org/components/player/)
+
 1）下载
 npm install –save video-react
 2）引入
@@ -2956,7 +3037,9 @@ export default class Index extends Component {
 }
 
 ```
+
 注：各种属性的修改，请查看链接文档。
+
 ## 3、video画中画的使用（原生）
 
 ```javascript
@@ -3035,17 +3118,19 @@ export default class Index extends Component {
 ```
 
 # 十八、取的表单元素中的内容
+
 ## 1、取的下拉框中的值
+
 ```java
 import React, { Component } from 'react';
 export default class nav extends Component {
-	fun=(e)=>{
-		console.log(e.target.value);
-	}
+ fun=(e)=>{
+  console.log(e.target.value);
+ }
     render() {
         return (
             <div>
-            	<select name="" id="" onChange={this.fun}>
+             <select name="" id="" onChange={this.fun}>
                      <option value="一">一</option>
                      <option value="二">二</option>
                      <option value="三">三</option>
@@ -3055,34 +3140,36 @@ export default class nav extends Component {
     }
 }
 ```
+
 ## 2、用事件源取得输入框内的值，每次打印是空白 的解决办法（这个是异步的问题）
 
 ```javascript
 import React, { Component } from 'react';
 export default class nav extends Component {
-	    constructor(props){
+     constructor(props){
         super(props);
         this.state={
             text:''
         }
     }
-	fun=(e)=>{
-		console.log(e.target.value);
-		this.setState({
-			text:e.targetvalue
-		},function(){
-			console.log(this.state.text);
-		})
-	}
+ fun=(e)=>{
+  console.log(e.target.value);
+  this.setState({
+   text:e.targetvalue
+  },function(){
+   console.log(this.state.text);
+  })
+ }
     render() {
         return (
             <div>
-            	<input type="text" onChange={this.fun} />
+             <input type="text" onChange={this.fun} />
             </div>
         )
     }
 }
 ```
+
 ## 3、勾选框，判断是否勾选
 
 ```java
@@ -3103,7 +3190,7 @@ class Text extends React.Component{
         }
     }
     render(){
-    	//样式的一种写法
+     //样式的一种写法
         let obj={
             color:'red'
         }
@@ -3119,6 +3206,7 @@ export default Text;
 ```
 
 # 十九、Fetch数据请求，包括解决跨域
+
 ## 1、fetch数据请求
 
 ```jsx
@@ -3199,8 +3287,6 @@ export default class App extends React.Component{
 
 ## 2、跨域
 
-
-
 ### 1）在 `package.json`里面修改
 
 在最后加入：
@@ -3209,7 +3295,7 @@ export default class App extends React.Component{
 "proxy": "http://localhost:3000"
 ```
 
-这下在请求的时候，就不用在写http://localhost:3000，直接写“http://localhost:3000”后面的；同时修改了配置文件，要重新运行。
+这下在请求的时候，就不用在写<http://localhost:3000，直接写“http://localhost:3000”后面的；同时修改了配置文件，要重新运行。>
 
 ### 2）在src下创建 *setupProxy.js*
 
@@ -3259,8 +3345,3 @@ export default class App extends React.Component{
     }
 }
 ```
-
-
-
-
-

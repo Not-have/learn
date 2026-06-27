@@ -29,7 +29,7 @@
 
 <hr />
 
-<em> 注：</em>vue在html里面的两种使用方式 
+<em> 注：</em>vue在html里面的两种使用方式
 
 ① 使用script标签，类型为 x-template
 
@@ -64,7 +64,7 @@
 </html>
 ```
 
-②常使用template标签，因为他不会被渲染，因为他是HTML的标签，具体请参考：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/template
+②常使用template标签，因为他不会被渲染，因为他是HTML的标签，具体请参考：<https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/template>
 
 ​        template元素是一种用于保存客户端内容机制，该内容在加载页面时不会呈现，但随后可以(原文为 may be)在运行时使用JavaScript实例化。
 
@@ -101,13 +101,13 @@
 
 ## 1、vue源码下载
 
-#### ①建议使用github克隆；
+#### ①建议使用github克隆
 
 ```text
 git clone git@github.com:vuejs/vue-next.git
 ```
 
-#### ②如果你是下载的压缩包，则需要以下的操作：
+#### ②如果你是下载的压缩包，则需要以下的操作
 
 注：以下指令的含义，自行百度。
 
@@ -122,8 +122,6 @@ d、git ommit -m '提交的信息'
 ## 2、运行
 
 在运行钱要修改package.json文件，在运行指令后面加<em>  --sourcemap </em>,这样你在调试vue.global.js的时候，你才能看到源码。
-
-![image-20210815164056614](https://gitee.com/Green_chicken/picture/raw/master/master/image-20210815164056614.png)
 
 ```text
 yarn dev
@@ -157,12 +155,6 @@ yarn dev
 </body>
 </html>
 ```
-
-②源码位置查看
-
-![image-20210815165816126](https://gitee.com/Green_chicken/picture/raw/master/master/image-20210815165816126.png)
-
-![image-20210815165953253](https://gitee.com/Green_chicken/picture/raw/master/master/image-20210815165953253.png)
 
 *<font color=red>注：key的作用：</font>*
 
@@ -327,8 +319,6 @@ div {
 }
 </style>
 ```
-
-![image-20210818003729022](https://gitee.com/Green_chicken/picture/raw/master/master/image-20210818003729022.png)
 
 # 三、watch的使用
 
@@ -569,7 +559,7 @@ export default {
 
 ## 1、父组件给子组件传值
 
-官网参考：https://v3.cn.vuejs.org/guide/component-props.html
+官网参考：<https://v3.cn.vuejs.org/guide/component-props.html>
 
 ### 1）子组件以数组的方式接受传值
 
@@ -639,9 +629,9 @@ export default {
 
 ### 2）对象的用法
 
- ![image-20211020002003424](https://not-have.github.io/file/images/202203260137368.png)
+ ![image-20211020002003424](./images/202203260137368.png)
 
- ![image-20211020002347543](https://not-have.github.io/file/images/202203260146138.png)
+ ![image-20211020002347543](./images/202203260146138.png)
 
 ① 父组件
 
@@ -712,19 +702,19 @@ export default {
 
 ### 3）类型都有哪些
 
-String 
+String
 
-Number 
+Number
 
-Boolean 
+Boolean
 
-Array 
+Array
 
-Object 
+Object
 
-Date 
+Date
 
-Function 
+Function
 
 Symbo
 
@@ -838,11 +828,11 @@ export default {
 </script>
 ```
 
- ![image-20211020005207084](https://not-have.github.io/file/images/202203260147630.png)
+ ![image-20211020005207084](./images/202203260147630.png)
 
 ## 2、非 Prop 的 Attribute
 
-https://v3.cn.vuejs.org/guide/component-attrs.html
+<https://v3.cn.vuejs.org/guide/component-attrs.html>
 
 注：也就是传递给组件某个属性，如：style、id、class。
 
@@ -856,7 +846,7 @@ https://v3.cn.vuejs.org/guide/component-attrs.html
 
 ① 你也可以禁用子组件继承父组件的样式，写法如下：
 
- ![image-20211024135937497](https://not-have.github.io/file/images/202203260147207.png)
+ ![image-20211024135937497](./images/202203260147207.png)
 
 ② 你也可以指定位置继承样式，写法如下：
 
@@ -990,7 +980,7 @@ export default {
 
 ![image-20211024141733760](https://i.loli.net/2021/10/24/agsuDTLbk9KpzyJ.png)
 
-![image-20211024141920529](https://not-have.github.io/file/images/202203260148777.png)
+![image-20211024141920529](./images/202203260148777.png)
 
 ## 3、子组件给父组件传值
 
@@ -1421,7 +1411,7 @@ const emitter = mitt();
 export default emitter;
 ```
 
-![image-20211030170906608](https://not-have.github.io/file/images/202203260148971.png)
+![image-20211030170906608](./images/202203260148971.png)
 
 # 五、slot的使用
 
@@ -1469,7 +1459,7 @@ export default {
 </script>
 ```
 
- ![image-20211031144613603](https://not-have.github.io/file/images/202203260149956.png)
+ ![image-20211031144613603](./images/202203260149956.png)
 
 ## 2、具名插槽
 
@@ -1551,7 +1541,7 @@ export default {
 </script>
 ```
 
-![image-20211031150422170](https://not-have.github.io/file/images/202203260149741.png)
+![image-20211031150422170](./images/202203260149741.png)
 
 ## 3、动态插槽名
 
@@ -1625,17 +1615,17 @@ export default {
 </script>
 ```
 
-![image-20211031152402708](https://not-have.github.io/file/images/202203260150030.png)
+![image-20211031152402708](./images/202203260150030.png)
 
 ## 4、插槽的缩写
 
- ![image-20211031152612040](https://not-have.github.io/file/images/202203260150236.png)
+ ![image-20211031152612040](./images/202203260150236.png)
 
 ## 5、作用域插槽
 
 注：也就是 在父组件中使用子组件的变量。
 
-![image-20211031234417575](https://not-have.github.io/file/images/202203260241710.png)
+![image-20211031234417575](./images/202203260241710.png)
 
 1）不指定插槽名字：
 
@@ -1777,7 +1767,7 @@ export default {
 
 实现一个tab的案例：
 
-![image-20211102233043902](https://not-have.github.io/file/images/202203260242560.png)
+![image-20211102233043902](./images/202203260242560.png)
 
  ![chrome-capture](https://gitee.com/Green_chicken/picture/raw/master/chrome-capture.gif)
 
@@ -1915,19 +1905,19 @@ import("@/utils/subcontract").then(res => {
 })
 ```
 
- ![image-20211106173750209](https://not-have.github.io/file/images/202203260243795.png)
+ ![image-20211106173750209](./images/202203260243795.png)
 
 # 八、vue中实现异步组件（defineAsyncComponent）
 
 在项目中，如果我们 需要异步加载某些组件的时候，就可以使用defineAsyncComponent。
 
-文档：https://v3.cn.vuejs.org/api/global-api.html#definecomponent
+文档：<https://v3.cn.vuejs.org/api/global-api.html#definecomponent>
 
-## 1、defineAsyncComponent接受两种参数：
+## 1、defineAsyncComponent接受两种参数
 
 ### 1）工厂函数，该工厂函数需要返回一个Promise对象
 
-![image-20211106174925721](https://not-have.github.io/file/images/202203260243459.png)
+![image-20211106174925721](./images/202203260243459.png)
 
 ```javascript
 <template>
@@ -2004,7 +1994,7 @@ export default {
 
 2）使用方式如下：
 
-![image-20211107211831619](https://not-have.github.io/file/images/202203260243382.png)
+![image-20211107211831619](./images/202203260243382.png)
 
 # 九、ref的使用
 
@@ -2147,13 +2137,9 @@ export default {
 
 ## 2、以通过$root获取跟组件，也就是 App.vue
 
- ![image-20211107221101517](https://not-have.github.io/file/images/202203260244164.png)
+ ![image-20211107221101517](./images/202203260244164.png)
 
-# 十一、vue的生命周期
-
-<img src="https://v3.cn.vuejs.org/images/lifecycle.svg" alt="https://gitee.com/Green_chicken/picture/raw/master/image-20211107221920301.png"></img>
-
-# 十二、组件的v-model
+# 十一、组件的v-model
 
 ## 1、API的使用
 
@@ -2368,6 +2354,3 @@ export default {
 }
 </script>
 ```
-
-
-

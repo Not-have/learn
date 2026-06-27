@@ -1,6 +1,6 @@
 # 一、认识vue-router
 
-文档：https://next.router.vuejs.org/zh/
+文档：<https://next.router.vuejs.org/zh/>
 
 Vue Router 是 [Vue.js](http://v3.vuejs.org/) 的官方路由。它与 Vue.js 核心深度集成，让用 Vue.js 构建单页应用变得轻而易举。
 
@@ -61,7 +61,7 @@ export default router
     },
 ```
 
- ![image-20220102214822798](https://not-have.github.io/file/images/202203260245621.png)
+ ![image-20220102214822798](./images/202203260245621.png)
 
 ## 4、引入main.js
 
@@ -80,7 +80,7 @@ app.mount('#app');
 
 ```javascript
 <template>
-	<router-view />
+ <router-view />
 </template>
 ```
 
@@ -113,11 +113,11 @@ meta属性：自定义的数据
 
 ## 2、router-link属性
 
-1）to属性： 
+1）to属性：
 
 是一个字符串，或者是一个对象  
 
-2）replace属性： 
+2）replace属性：
 
 设置 replace 属性的话，当点击时，会调用 router.replace()，而不是 router.push()， router.push()有返回，另一个没
 
@@ -125,7 +125,7 @@ meta属性：自定义的数据
 
 设置激活a元素后应用的class，默认是router-link-active
 
-4）exact-active-class属性： 
+4）exact-active-class属性：
 
 链接精准激活时，应用于渲染的  的 class，默认是router-link-exact-active
 
@@ -140,7 +140,7 @@ import Router4 from "../views/Router4的使用/Index.vue"
  * 2、配置路由映射关系
  */
 const routes = [
-	{
+ {
         path: '/',
         component: Home
     },
@@ -179,7 +179,7 @@ import Router4 from "../views/Router4的使用/Index.vue"
  * 2、配置路由映射关系
  */
 const routes = [
-	{
+ {
         path: '/',
         redirect:"/home"
     },
@@ -211,19 +211,19 @@ export default router
 
 ## 1、路由里面的写法
 
- ![image-20220103213629261](https://not-have.github.io/file/images/202203260246286.png)
+ ![image-20220103213629261](./images/202203260246286.png)
 
 ## 2、路由跳转处的写法
 
- ![image-20220103213808147](https://not-have.github.io/file/images/202203260246256.png)
+ ![image-20220103213808147](./images/202203260246256.png)
 
 ## 3、在组件里面获取
 
- ![image-20220103214755757](https://not-have.github.io/file/images/202203260251806.png)
+ ![image-20220103214755757](./images/202203260251806.png)
 
 ## 4、一次获取多个值
 
-![image-20220103215302553](https://not-have.github.io/file/images/202203260251516.png)
+![image-20220103215302553](./images/202203260251516.png)
 
 # 五、实现一个404找不到路径
 
@@ -276,11 +276,11 @@ export default router
 
 ## 4、加星和不加的区别
 
-![image-20220103221034303](https://not-have.github.io/file/images/202203260252157.png)
+![image-20220103221034303](./images/202203260252157.png)
 
 # 六、二级路由
 
-![image-20220103222818068](https://not-have.github.io/file/images/202203260252893.png)
+![image-20220103222818068](./images/202203260252893.png)
 
 # 七、JS方式路由跳转
 
@@ -414,14 +414,14 @@ export default {
 
 # 八、router-view的v-slot
 
-https://next.router.vuejs.org/zh/api/#router-link-%E7%9A%84-v-slot
+<https://next.router.vuejs.org/zh/api/#router-link-%E7%9A%84-v-slot>
 
 # 九、router-view过渡动画的实现
 
 ```javascript
 <template>
     <div>
-    	<!-- 下面使用了对象的结构 -->
+     <!-- 下面使用了对象的结构 -->
         <router-view v-slot="{ Component }">
             <transition name="box">
                 <!-- keep-alive 缓存 -->
@@ -567,7 +567,7 @@ export default router
 
 ## 1、添加一个相同的路由
 
- ![image-20220106231310600](https://not-have.github.io/file/images/202203260253782.png)
+ ![image-20220106231310600](./images/202203260253782.png)
 
 ## 2、通过removeRoute方法，传入路由的名称
 
@@ -594,9 +594,9 @@ const router = createRouter({
     routes
 })
 let addList = {
-	path: '/home',
-	name: 'Home',
-	component: () => import("../views/Home.vue")
+ path: '/home',
+ name: 'Home',
+ component: () => import("../views/Home.vue")
 }
 const removeRoute = router.addRoute(addList)
 removeRoute()
@@ -708,9 +708,6 @@ router.beforeEach((to, from) => {
 
 12、调用 beforeRouteEnter（这里不能拿到this，也就是不能拿到当前的组件实例）守卫中传给 next 的回调函数（next里面有个参数，它可以获取到组件实例的），创建好的组件实例会作为回调函数的参数传入
 
-
-
 <hr />
 
-文档：https://next.router.vuejs.org/zh/guide/advanced/navigation-guards.html
-
+文档：<https://next.router.vuejs.org/zh/guide/advanced/navigation-guards.html>

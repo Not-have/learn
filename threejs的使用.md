@@ -1,12 +1,12 @@
 # 一、threejs文档
 
-中文文档：http://www.webgl3d.cn/
+中文文档：<http://www.webgl3d.cn/>
 
-官方文档：https://threejs.org/docs/index.html#manual/zh/introduction/Installation
+官方文档：<https://threejs.org/docs/index.html#manual/zh/introduction/Installation>
 
 本地文档启动方式：
 
-https://github.com/mrdoob/three.js
+<https://github.com/mrdoob/three.js>
 
 ```bash
 git cloen https://github.com/mrdoob/three.js.git
@@ -72,7 +72,7 @@ camera.lookAt(0, 0, 0); // 旋转对象以面向世界空间中的点
 
 ## 4、创建渲染器
 
- <img src="https://not-have.github.io/file/images/image-20240407002517482.png" alt="image-20240407002517482" style="zoom:33%;" />
+ <img src="./images/image-20240407002517482.png" alt="image-20240407002517482" style="zoom:33%;" />
 
 [doc](https://threejs.org/docs/index.html?q=WebGLRenderer#api/zh/renderers/WebGLRenderer)
 
@@ -108,7 +108,7 @@ document.body.appendChild(renderer.domElement); // 设置渲染的元素
 
 注：几何体的类型：
 
- <img src="https://not-have.github.io/file/images/image-20240406235857937.png" alt="image-20240406235857937" style="zoom:25%;" />
+ <img src="./images/image-20240406235857937.png" alt="image-20240406235857937" style="zoom:25%;" />
 
 ```javascript
 import * as THREE from 'three';
@@ -143,7 +143,7 @@ const geometry = new THREE.BoxGeometry(1, 1, 1);
 
 [doc](https://threejs.org/docs/index.html?q=MeshBasicMaterial#api/zh/materials/MeshBasicMaterial)
 
- <img src="https://not-have.github.io/file/images/image-20240407000551404.png" alt="image-20240407000551404" style="zoom:25%;" />
+ <img src="./images/image-20240407000551404.png" alt="image-20240407000551404" style="zoom:25%;" />
 
 ```javascript
 import * as THREE from 'three';
@@ -425,7 +425,7 @@ function animate() {
 animate();
 ```
 
-![image-20240407002036049](https://not-have.github.io/file/images/image-20240407002036049.png)
+![image-20240407002036049](./images/image-20240407002036049.png)
 
 ~~简易 demo：~~
 
@@ -587,7 +587,7 @@ function animate() {
 animate();
 ```
 
- <img src="https://not-have.github.io/file/images/image-20240406194956402.png" alt="image-20240406194956402" style="zoom:25%;" />
+ <img src="./images/image-20240406194956402.png" alt="image-20240406194956402" style="zoom:25%;" />
 
 ## 2、坐标器
 
@@ -820,7 +820,7 @@ function animate() {
 animate();
 ```
 
-![image-20240406230111461](https://not-have.github.io/file/images/image-20240406230111461.png)
+![image-20240406230111461](./images/image-20240406230111461.png)
 
 ### 3）缩放
 
@@ -988,4 +988,3 @@ function animate() {
 }
 animate();
 ```
-

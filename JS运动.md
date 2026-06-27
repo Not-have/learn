@@ -223,68 +223,68 @@
 ```javascript
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<style>
-			#box{
-				height: 25px;
-				width: 25px;
-				background-color: green;
-				border-radius: 50%;
-				position: absolute;
-				top:200px;
-			}
-		</style>
-	</head>
-	<body>
-		<button>启动</button>
-		<div id="box">
-			
-		</div>
-	</body>
+ <head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+   #box{
+    height: 25px;
+    width: 25px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    top:200px;
+   }
+  </style>
+ </head>
+ <body>
+  <button>启动</button>
+  <div id="box">
+   
+  </div>
+ </body>
 </html>
 <script>
-	let oBox = document.querySelector("#box");
-	let oBtn = document.querySelector("button");
-	let time = null;
-	
-	function startMove(){
-		let speedX = 5;
-		let speedY = 5;
-		
-		time = setInterval(function(){
-			oBox.style.left = oBox.offsetLeft + speedX + "px";
-			oBox.style.top = oBox.offsetTop + speedY + "px";
-			if(oBox.offsetLeft < 0){//rang box的边框到视口边框
-				speedX *= -1;//等价于spddeX=speedX*-1;(让换个方向继续动)
-			}
-			
-			let maxX = window.innerWidth - oBox.offsetWidth;
-			
-			if(oBox.offsetLeft > maxX){
-				speedX *= -1;
-			}
-			
-			if(oBox.offsetTop < 0){
-				speedY *= -1;
-			}
-			
-			let maxY = window.innerHeight - oBox.offsetHeight;
-			
-			if(oBox.offsetTop > maxY){
-				speedY *= -1;
-			}
-		},10);
-	}
-	
-	oBtn.onclick = function(){
-		startMove();
-	}
+ let oBox = document.querySelector("#box");
+ let oBtn = document.querySelector("button");
+ let time = null;
+ 
+ function startMove(){
+  let speedX = 5;
+  let speedY = 5;
+  
+  time = setInterval(function(){
+   oBox.style.left = oBox.offsetLeft + speedX + "px";
+   oBox.style.top = oBox.offsetTop + speedY + "px";
+   if(oBox.offsetLeft < 0){//rang box的边框到视口边框
+    speedX *= -1;//等价于spddeX=speedX*-1;(让换个方向继续动)
+   }
+   
+   let maxX = window.innerWidth - oBox.offsetWidth;
+   
+   if(oBox.offsetLeft > maxX){
+    speedX *= -1;
+   }
+   
+   if(oBox.offsetTop < 0){
+    speedY *= -1;
+   }
+   
+   let maxY = window.innerHeight - oBox.offsetHeight;
+   
+   if(oBox.offsetTop > maxY){
+    speedY *= -1;
+   }
+  },10);
+ }
+ 
+ oBtn.onclick = function(){
+  startMove();
+ }
 </script>
 ```
 
- ![image preview](https://not-have.github.io/file/images/202203280032327.png)
+ ![image preview](./images/202203280032327.png)
 
 ## 6、抛物线
 
@@ -395,7 +395,7 @@
 </html>
 ```
 
-![image preview](https://not-have.github.io/file/images/202203280033565.png)
+![image preview](./images/202203280033565.png)
 
 ## 7、重力回弹（类似与打皮球）
 
@@ -403,46 +403,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+ <meta charset="UTF-8">
+ <title>Document</title>
 
-	<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
-		#container{
-			width: 800px;
-			height: 400px;
-			margin: 30px auto;
-			border: 1px solid #b6b6b6;
-			position: relative;
-		}
-		#box{
-			width: 50px;
-			height: 50px;
-			background:aquamarine;
-			border-radius: 50%;
-			position: absolute;
-			left: 100px;
-			top: 20px;
-		}
-	</style>
+ <style>
+  *{
+   margin: 0;
+   padding: 0;
+  }
+  #container{
+   width: 800px;
+   height: 400px;
+   margin: 30px auto;
+   border: 1px solid #b6b6b6;
+   position: relative;
+  }
+  #box{
+   width: 50px;
+   height: 50px;
+   background:aquamarine;
+   border-radius: 50%;
+   position: absolute;
+   left: 100px;
+   top: 20px;
+  }
+ </style>
 </head>
 <body>
-	<div id="container">		
-		<div id="box">
-			
-		</div>
-	</div>
+ <div id="container">  
+  <div id="box">
+   
+  </div>
+ </div>
 </body>
 </html>
 <script>
-	    window.onload = function(){
+     window.onload = function(){
 
-			var g = 1;  //重力加速度;
-			var vx = 2; //x轴速度;
-			var vy = 0;	//y轴速度;
+   var g = 1;  //重力加速度;
+   var vx = 2; //x轴速度;
+   var vy = 0; //y轴速度;
 
             var ball = document.getElementById("box");
             var container = document.getElementById("container");
@@ -451,8 +451,8 @@
             var containerHeight = container.offsetHeight;
             var conTop = container.offsetTop;
             var left, top;
-			
-			setInterval(function () {
+   
+   setInterval(function () {
                 if (ball.offsetTop >= containerHeight - ball.offsetHeight) {
 
                     ball.style.top = containerHeight - ball.offsetHeight + "px";
@@ -467,7 +467,7 @@
                 ball.style.left = left + "px";
                 ball.style.top = top + "px";
             }, 30)
-		}
+  }
 </script>
 ```
 
@@ -493,7 +493,7 @@
 </head>
  
 <body>
-	<img src="https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210216224103.jpg" alt="" id="pic"/>
+ <img src="https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210216224103.jpg" alt="" id="pic"/>
     <div id="demo">
         <p>天王盖地虎，小鸡炖蘑菇</p>
         <p>天王盖地虎，小鸡炖蘑菇</p>
@@ -535,30 +535,30 @@
 </body>
 </html>
 <script type="text/javascript">
-	var oPic = document.querySelector("#pic");
-	window.onscroll = function(){
-		//获取页面滚走的距离
-		var sTop = document.documentElement.scrollTop || document.body.scrollTop;
-		startMove( oPic  , 50 + sTop );
-	}
-	var timer = null;
-	function startMove(obj,target){
-		clearInterval(timer);
-		timer = setInterval(function(){
-			//缓冲运动原理
-			var speed = (target-obj.offsetTop)/10;
-			speed =  speed>0 ? Math.ceil(speed) : Math.floor(speed);
-			if( obj.offsetTop == Math.floor(target) ){
-				clearInterval( timer );
-			}else{
-				obj.style.top = obj.offsetTop + speed + "px";
-			}
-		},30)
-	} 
+ var oPic = document.querySelector("#pic");
+ window.onscroll = function(){
+  //获取页面滚走的距离
+  var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+  startMove( oPic  , 50 + sTop );
+ }
+ var timer = null;
+ function startMove(obj,target){
+  clearInterval(timer);
+  timer = setInterval(function(){
+   //缓冲运动原理
+   var speed = (target-obj.offsetTop)/10;
+   speed =  speed>0 ? Math.ceil(speed) : Math.floor(speed);
+   if( obj.offsetTop == Math.floor(target) ){
+    clearInterval( timer );
+   }else{
+    obj.style.top = obj.offsetTop + speed + "px";
+   }
+  },30)
+ } 
 </script>
 ```
 
-![image preview](https://not-have.github.io/file/images/202203280034675.png)
+![image preview](./images/202203280034675.png)
 
 =======
 运动原理：JavaScript 实现运动的原理，就是通过定时器不断改变元素的位置，直至到达目标点后停止运动。通常，要让元素动起来，我们会通过改变元素的 left 和 top 值来改变元素的相对位置。
@@ -786,68 +786,68 @@
 ```javascript
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<style>
-			#box{
-				height: 25px;
-				width: 25px;
-				background-color: green;
-				border-radius: 50%;
-				position: absolute;
-				top:200px;
-			}
-		</style>
-	</head>
-	<body>
-		<button>启动</button>
-		<div id="box">
-			
-		</div>
-	</body>
+ <head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+   #box{
+    height: 25px;
+    width: 25px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    top:200px;
+   }
+  </style>
+ </head>
+ <body>
+  <button>启动</button>
+  <div id="box">
+   
+  </div>
+ </body>
 </html>
 <script>
-	let oBox = document.querySelector("#box");
-	let oBtn = document.querySelector("button");
-	let time = null;
-	
-	function startMove(){
-		let speedX = 5;
-		let speedY = 5;
-		
-		time = setInterval(function(){
-			oBox.style.left = oBox.offsetLeft + speedX + "px";
-			oBox.style.top = oBox.offsetTop + speedY + "px";
-			if(oBox.offsetLeft < 0){//rang box的边框到视口边框
-				speedX *= -1;//等价于spddeX=speedX*-1;(让换个方向继续动)
-			}
-			
-			let maxX = window.innerWidth - oBox.offsetWidth;
-			
-			if(oBox.offsetLeft > maxX){
-				speedX *= -1;
-			}
-			
-			if(oBox.offsetTop < 0){
-				speedY *= -1;
-			}
-			
-			let maxY = window.innerHeight - oBox.offsetHeight;
-			
-			if(oBox.offsetTop > maxY){
-				speedY *= -1;
-			}
-		},10);
-	}
-	
-	oBtn.onclick = function(){
-		startMove();
-	}
+ let oBox = document.querySelector("#box");
+ let oBtn = document.querySelector("button");
+ let time = null;
+ 
+ function startMove(){
+  let speedX = 5;
+  let speedY = 5;
+  
+  time = setInterval(function(){
+   oBox.style.left = oBox.offsetLeft + speedX + "px";
+   oBox.style.top = oBox.offsetTop + speedY + "px";
+   if(oBox.offsetLeft < 0){//rang box的边框到视口边框
+    speedX *= -1;//等价于spddeX=speedX*-1;(让换个方向继续动)
+   }
+   
+   let maxX = window.innerWidth - oBox.offsetWidth;
+   
+   if(oBox.offsetLeft > maxX){
+    speedX *= -1;
+   }
+   
+   if(oBox.offsetTop < 0){
+    speedY *= -1;
+   }
+   
+   let maxY = window.innerHeight - oBox.offsetHeight;
+   
+   if(oBox.offsetTop > maxY){
+    speedY *= -1;
+   }
+  },10);
+ }
+ 
+ oBtn.onclick = function(){
+  startMove();
+ }
 </script>
 ```
 
- ![image preview](https://not-have.github.io/file/images/202203280032327.png)
+ ![image preview](./images/202203280032327.png)
 
 ## 6、抛物线
 
@@ -958,7 +958,7 @@
 </html>
 ```
 
-![image preview](https://not-have.github.io/file/images/202203280033565.png)
+![image preview](./images/202203280033565.png)
 
 ## 7、重力回弹（类似与打皮球）
 
@@ -966,46 +966,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+ <meta charset="UTF-8">
+ <title>Document</title>
 
-	<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
-		#container{
-			width: 800px;
-			height: 400px;
-			margin: 30px auto;
-			border: 1px solid #b6b6b6;
-			position: relative;
-		}
-		#box{
-			width: 50px;
-			height: 50px;
-			background:aquamarine;
-			border-radius: 50%;
-			position: absolute;
-			left: 100px;
-			top: 20px;
-		}
-	</style>
+ <style>
+  *{
+   margin: 0;
+   padding: 0;
+  }
+  #container{
+   width: 800px;
+   height: 400px;
+   margin: 30px auto;
+   border: 1px solid #b6b6b6;
+   position: relative;
+  }
+  #box{
+   width: 50px;
+   height: 50px;
+   background:aquamarine;
+   border-radius: 50%;
+   position: absolute;
+   left: 100px;
+   top: 20px;
+  }
+ </style>
 </head>
 <body>
-	<div id="container">		
-		<div id="box">
-			
-		</div>
-	</div>
+ <div id="container">  
+  <div id="box">
+   
+  </div>
+ </div>
 </body>
 </html>
 <script>
-	    window.onload = function(){
+     window.onload = function(){
 
-			var g = 1;  //重力加速度;
-			var vx = 2; //x轴速度;
-			var vy = 0;	//y轴速度;
+   var g = 1;  //重力加速度;
+   var vx = 2; //x轴速度;
+   var vy = 0; //y轴速度;
 
             var ball = document.getElementById("box");
             var container = document.getElementById("container");
@@ -1014,8 +1014,8 @@
             var containerHeight = container.offsetHeight;
             var conTop = container.offsetTop;
             var left, top;
-			
-			setInterval(function () {
+   
+   setInterval(function () {
                 if (ball.offsetTop >= containerHeight - ball.offsetHeight) {
 
                     ball.style.top = containerHeight - ball.offsetHeight + "px";
@@ -1030,7 +1030,7 @@
                 ball.style.left = left + "px";
                 ball.style.top = top + "px";
             }, 30)
-		}
+  }
 </script>
 ```
 
@@ -1056,7 +1056,7 @@
 </head>
  
 <body>
-	<img src="https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210216224103.jpg" alt="" id="pic"/>
+ <img src="https://gitee.com/Green_chicken/picture/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/20210216224103.jpg" alt="" id="pic"/>
     <div id="demo">
         <p>天王盖地虎，小鸡炖蘑菇</p>
         <p>天王盖地虎，小鸡炖蘑菇</p>
@@ -1098,27 +1098,27 @@
 </body>
 </html>
 <script type="text/javascript">
-	var oPic = document.querySelector("#pic");
-	window.onscroll = function(){
-		//获取页面滚走的距离
-		var sTop = document.documentElement.scrollTop || document.body.scrollTop;
-		startMove( oPic  , 50 + sTop );
-	}
-	var timer = null;
-	function startMove(obj,target){
-		clearInterval(timer);
-		timer = setInterval(function(){
-			//缓冲运动原理
-			var speed = (target-obj.offsetTop)/10;
-			speed =  speed>0 ? Math.ceil(speed) : Math.floor(speed);
-			if( obj.offsetTop == Math.floor(target) ){
-				clearInterval( timer );
-			}else{
-				obj.style.top = obj.offsetTop + speed + "px";
-			}
-		},30)
-	} 
+ var oPic = document.querySelector("#pic");
+ window.onscroll = function(){
+  //获取页面滚走的距离
+  var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+  startMove( oPic  , 50 + sTop );
+ }
+ var timer = null;
+ function startMove(obj,target){
+  clearInterval(timer);
+  timer = setInterval(function(){
+   //缓冲运动原理
+   var speed = (target-obj.offsetTop)/10;
+   speed =  speed>0 ? Math.ceil(speed) : Math.floor(speed);
+   if( obj.offsetTop == Math.floor(target) ){
+    clearInterval( timer );
+   }else{
+    obj.style.top = obj.offsetTop + speed + "px";
+   }
+  },30)
+ } 
 </script>
 ```
 
-![image preview](https://not-have.github.io/file/images/202203280034675.png)
+![image preview](./images/202203280034675.png)

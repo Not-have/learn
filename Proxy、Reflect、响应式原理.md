@@ -1,4 +1,4 @@
-# 1、Object.defineProperty 
+# 1、Object.defineProperty
 
 1）Object.defineProperty 的设计初中不是为了监听对象中属性变化的，而是为了定义`访问属性描述符`。
 
@@ -146,7 +146,7 @@ Reflect.getPrototypeOf(target) 类似于 Object.getPrototypeOf0 ；
 
 Reflect.defineProperty(target, propertyKey, attributes) 类似于 Object.defineProperty0;
 
-② 对对象本身的操作，会使用到 Reflect 
+② 对对象本身的操作，会使用到 Reflect
 
 ## 2）文档
 
@@ -337,4 +337,3 @@ watchFn(function () {
 
 objProxy.name = "哈哈哈";
 ```
-

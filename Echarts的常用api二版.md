@@ -1,14 +1,17 @@
-﻿﻿﻿﻿﻿@[TOC]( )
-注：一些经典文章：
-1、[地图标点](https://juejin.im/post/6844903989427847181)：https://juejin.im/post/6844903989427847181
-2、[地图下钻](https://juejin.im/post/6844904170512891917)：https://juejin.im/post/6844904170512891917
-3、[标点颜色](https://www.cnblogs.com/wlpower/p/6813501.html)：https://www.cnblogs.com/wlpower/p/6813501.html
-4、[w3cschool的详细介绍](https://www.w3cschool.cn/echarts_tutorial/echarts_tutorial-cd232da0.html):https://www.w3cschool.cn/echarts_tutorial/echarts_tutorial-cd232da0.html
+﻿﻿注：一些经典文章：
+1、[地图标点](https://juejin.im/post/6844903989427847181)：<https://juejin.im/post/684490398942784718>
+
+2、[地图下钻](https://juejin.im/post/6844904170512891917)：<https://juejin.im/post/684490417051289191>
+
+3、[标点颜色](https://www.cnblogs.com/wlpower/p/6813501.html)：<https://www.cnblogs.com/wlpower/p/6813501.htm>
+
+4、[w3cschool的详细介绍](https://www.w3cschool.cn/echarts_tutorial/echarts_tutorial-cd232da0.html):<:<:<https://www.w3cschool.cn/echarts_tutorial/echarts_tutorial-cd232da0.htm>>
 
 # 一、Echarts
-注：[官网](https://echarts.apache.org/zh/index.html)：https://echarts.apache.org/zh/index.html
 
-​       Echarts[社区](https://gallery.echartsjs.com/explore.html#sort=rank~timeframe=all~author=all)：https://www.makeapie.com/explore.html
+注：[官网](https://echarts.apache.org/zh/index.html)：<https://echarts.apache.org/zh/index.htm>
+
+​       Echarts[社区](https://gallery.echartsjs.com/explore.html#sort=rank~timeframe=all~author=all)：<https://www.makeapie.com/explore.htm>
 
 ```bash
 # 下载
@@ -16,7 +19,9 @@ npm install --save echarts
 ```
 
 # 二、图表的常用API属性设置
+
 注：在vue中的使用方法（常用的一种方法）
+
 ```javascript
 <template>
     <div id="container" style="height:200px">
@@ -54,10 +59,12 @@ export default {
 ```
 
 ## 1、柱状图
+
 1）X轴标签的一些配置
 `注：`
 ①[X轴的配置](https://echarts.apache.org/zh/option.html#xAxis)
 ②[Y轴的相关配置](https://echarts.apache.org/zh/option.html#yAxis)
+
 ```javascript
                 xAxis: {
                     type: "category",
@@ -66,7 +73,7 @@ export default {
                     data:数据,
                     //取消x轴的辅助线，也就是 图标里面的竖线，方便读数的时候 使用
                     splitLine: {
-                    	show: false
+                     show: false
                     },
                     axisLabel: {
                         fontSize:'12',
@@ -88,7 +95,7 @@ export default {
                         show: false,
                         //定义x轴颜色
                         lineStyle: {
-                        	color: 'white'
+                         color: 'white'
                         }
                     },
                     //坐标轴刻度相关设置
@@ -96,12 +103,14 @@ export default {
                         show: false,
                         alignWithLabel: true,//true 的时候有效，可以保证刻度线和标签对齐
                         lineStyle:{
-                        	color:'white'// x轴刻度的颜色
+                         color:'white'// x轴刻度的颜色
                         }    
                     },
                 },
 ```
+
 2）柱状图上方显示数据
+
 ```javascript
                 series: [{
                     barWidth : 15,//柱图宽度
@@ -129,11 +138,13 @@ export default {
                     }
                 }]
 ```
+
 3）x轴标签长度太长的解决办法：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200826134402121.png)
+![在这里插入图片描述](./images/20200826134402121.png)
+
 ```javascript
-				//写在 xAxis 里
-					axisLabel: {
+    //写在 xAxis 里
+     axisLabel: {
                         // 修饰刻度标签的颜色
                         color: "rgba(255,255,255,.7)",
                         interval: 0,//这个是标签都展示，如何需要隔一个展示一个 就写1，以此类推
@@ -182,11 +193,12 @@ export default {
                         }
                     },
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200826134522839.png)
+
+![在这里插入图片描述](./images/20200826134522839.png)
 4）柱状图阴影指示器颜色修改
 
 ```javascript
-	//文档：https://echarts.apache.org/v4/zh/option.html#tooltip
+ //文档：https://echarts.apache.org/v4/zh/option.html#tooltip
     tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -198,7 +210,9 @@ export default {
         }
     },
 ```
+
 ## 2、折线图
+
 ```javascript
                 series: [
                     {
@@ -234,6 +248,7 @@ export default {
                 ]
             };
 ```
+
 ### 1）给折线图下方添加阴影
 
 ```javascript
@@ -360,17 +375,19 @@ option = {
 };
 ```
 
-![image-20210325211251195](https://i.loli.net/2021/03/25/NUOZqtrvTmaSb2f.png)
+![image-20210325211251195](./images/NUOZqtrvTmaSb2f.webp)
 
 ## 3、移动端手势放大柱状图折线图
 
 ```javascript
-				//手势放大柱状图折线图
+    //手势放大柱状图折线图
                 dataZoom:{//写在option的下一级，也就是title等的同级处。
                     type:"inside"
                 },
 ```
+
 ## 4、点击事件
+
 ```javascript
 <template>
     <div id="container" style="height:200px">
@@ -408,9 +425,13 @@ export default {
 
 </style>
 ```
-## 5、案例：
+
+## 5、案例
+
 ### 1)不同线条的折线图
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20201126103309836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
+
+![在这里插入图片描述](./images/20201126103309836.png)
+
 ```javascript
 option = {
     tooltip: {
@@ -563,8 +584,11 @@ option = {
     ]
 };
 ```
+
 ### 2）在vue中的使用
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2020112610391870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
+
+![在这里插入图片描述](./images/2020112610391870.png)
+
 ```javascript
 <!--
  * @Author:
@@ -776,8 +800,11 @@ export default {
 }
 </style>
 ```
+
 ### 3)有警戒线的柱状图
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200916163634511.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF)
+
+![在这里插入图片描述](./images/20200916163634511.png)
+
 ```javascript
 <template>
     <div>
@@ -908,8 +935,11 @@ export default {
 }
 </style>
 ```
+
 ### 4)平滑的折线图
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200916155027447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF)
+
+![在这里插入图片描述](./images/20200916155027447.png)
+
 ```javascript
 <template>
     <div>
@@ -937,7 +967,7 @@ export default {
                         show:true,
                         //定义x轴颜色
                         lineStyle: {
-                        	color: 'white'
+                         color: 'white'
                         }
                     },
                     
@@ -947,12 +977,12 @@ export default {
                     axisLine: {
                         //定义x轴颜色
                         lineStyle: {
-                        	color: 'white'
+                         color: 'white'
                         }
                     },
                     // 取消y轴辅助线
                     splitLine: {
-                    	show: false
+                     show: false
                     },
                 },
                 series: [{
@@ -989,38 +1019,48 @@ export default {
 }
 </style>
 ```
+
 # 三、公用api
+
 ## 1、设置图例位置与点击事件
+
 ```javascript
                 legend: {
                     bottom:0,//图例位置
                     selectedMode:false,//取消图例上的点击事件
                     textStyle: { //图例文字的样式
-                    	color: '#fff'
+                     color: '#fff'
                     },
                 },
 ```
+
 ## 2、根据屏幕大小去响应图表大小
+
 ```javascript
-			window.addEventListener("resize", function() {
+   window.addEventListener("resize", function() {
                 myChart.resize();
             });
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200721103053230.png )
+
+![在这里插入图片描述](./images/20200721103053230.png )
+
 ## 3、设置标题
+
 ```javascript
-			//在option里面（即是在指定图表的配置项和数据）
-			title: {
-            	text: "",//标题内容
-            	left:"center",//居中
-          		textStyle: {
-            		fontSize:16,//文字大小
-            		color:"white",//文字颜色
-            		fontWeight:'normal'//文字粗细
-            	}
+   //在option里面（即是在指定图表的配置项和数据）
+   title: {
+             text: "",//标题内容
+             left:"center",//居中
+            textStyle: {
+              fontSize:16,//文字大小
+              color:"white",//文字颜色
+              fontWeight:'normal'//文字粗细
+             }
             },
 ```
+
 ## 4、图表位置
+
 ```javascript
                 grid: {
                     top: "16%",
@@ -1032,7 +1072,9 @@ export default {
                     containLabel: true,//
                 },
 ```
+
 ## 5、放大图例
+
 ```javascript
 //在option的下一级
                 //手势放大柱状图折线图、折线图等（鼠标也可以）
@@ -1072,7 +1114,7 @@ yAxis: {
     splitLine: {
         show: true,
         lineStyle: {
-        	color: 'rgba(46, 105, 205, .4)'
+         color: 'rgba(46, 105, 205, .4)'
         }
     },
 }
@@ -1081,12 +1123,17 @@ yAxis: {
 # 四、Echarts_Map的使用
 
 ## 1、只能到省级
+
 下载echarts：
 `npm install --save echarts`
+
 ### 1）省级地图的使用
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729154655939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70 =150x150)
+
+![在这里插入图片描述](./images/20200729154655939.png)
+
 注：引用各个省的地图，在==node_modules/echarts/map/js==里去找。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729155105931.png )
+![在这里插入图片描述](./images/20200729155105931.png )
+
 ```javascript
 <!--
  * @Descripttion: (对该文件的信息描述) 
@@ -1169,7 +1216,9 @@ export default {
     }
 </style>
 ```
+
 ### 2)散点图
+
 ```javascript
 <!--
  * @Descripttion: (对该文件的信息描述) 
@@ -1275,12 +1324,16 @@ export default {
     }
 </style>
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200829155641225.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70 =150x180)
+
+![在这里插入图片描述](<(<https://img-blog.csdnimg.cn/20200829155641225.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_7>> =150x180)
+
 ### 3）全国地图的使用
+
 参考社区的[例子](https://gallery.echartsjs.com/editor.html?c=x0-ExSkZDM)：[https://gallery.echartsjs.com/editor.html?c=x0-ExSkZDM](https://gallery.echartsjs.com/editor.html?c=x0-ExSkZDM)  (模拟飞机航线)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200729140725958.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70 =200x150)
-注：[背景动画](https://wws.lanzous.com/b01hk520b)图片见:https://wws.lanzous.com/b01hk520b
+![在这里插入图片描述](<(<https://img-blog.csdnimg.cn/20200729140725958.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_7>> =200x150)
+注：[背景动画](https://wws.lanzous.com/b01hk520b)图片见:<:<:<https://wws.lanzous.com/b01hk520>>
 `不要乱下载经纬度编码，echarts依赖包里面就有。`
+
 ```javascript
 <template>
     <div>
@@ -1629,7 +1682,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-	//这块使用了scss语法，响应式布局 使用了amfe-flexible，所以下面用了rem
+ //这块使用了scss语法，响应式布局 使用了amfe-flexible，所以下面用了rem
     .map {
         position: relative;
         height:8rem;
@@ -1688,15 +1741,20 @@ export default {
     }
 </style>
 ```
+
 ## 2、可以下钻的地图，最小到县(基于高德地图)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200818194355679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70#pic_center)
+
+![在这里插入图片描述](./images/20200818194355679.png)
 
 1）在public——>index.html中引入：
+
 ```html
 <script src='http://webapi.amap.com/maps?v=1.4.15&key=cb6152d432c370a781b4b2a80a84e9a6&plugin=AMap.DistrictSearch'></script>
 <script src="//webapi.amap.com/ui/1.1/main.js"></script>
 ```
+
 2）在vue.config.js中引入：
+
 ```javascript
 module.exports = {
     configureWebpack: {
@@ -1714,7 +1772,9 @@ module.exports = {
     },
 }
 ```
+
 3）在页面中进行使用
+
 ```javascript
 <template>
     <div class="echarts">
@@ -1972,16 +2032,20 @@ export default {
 }
 </style>
 ```
-注：[dome地址：](https://github.com/Not-have/echarts-map)https://github.com/Not-have/echarts-map
+
+注：[dome地址：](https://github.com/Not-have/echarts-map)<)<)<https://github.com/Not-have/echarts-ma>>
 
 ## 3、百度地图和echarts的使用
+
 注：在百度地图上标点
 1）在public——>index.html中引入：
 
 ```html
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ncAvX3AGsOcdx4rNf2LO1ZDmnND0vSgu"></script>
 ```
+
 2）在页面或者组件中使用
+
 ```javascript
 <!--
  * @Author: 
@@ -2166,8 +2230,10 @@ export default {
     }
 </style>
 ```
+
 # 五、Echarts中使用词云
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200722194317731.png)
+
+![在这里插入图片描述](./images/20200722194317731.png)
 1、下载echarts：
 npm install --save echarts
 2、下载echarts-wordcloud：
@@ -2860,17 +2926,22 @@ export default {
 
 </style>
 ```
+
 # 六、在Echarts中使用圆图
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200722193643526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70 =150x100)
+
+![在这里插入图片描述](<(<https://img-blog.csdnimg.cn/20200722193643526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_7>> =150x100)
 1、下载：
 `
-npm install echarts-liquidfill
+m install echarts-liquidfill
 `
 2、在那个页面使用，就在那个页面引入
+
 ```javascript
 import 'echarts-liquidfill';
 ```
+
 3、案例：
+
 ```javascript
 <template>
     <div id="disjunctor" style="height:2.6rem">
@@ -2949,24 +3020,3 @@ export default {
 
 </style>
 ```
-# 七、一些好看的图
-
-[![image-20210928144017957](https://gitee.com/Green_chicken/picture/raw/master/markdown/image-20210928144017957.png)](https://www.makeapie.com/editor.html?c=x6GXQ8Aw6X)
-
-
-
-
-
-
-
-[
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210102173915198.png)](https://www.makeapie.com/editor.html?c=xBGq7gnHzU)
-[
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210104091236985.png)](https://www.makeapie.com/editor.html?c=xfX7ZMgLty)
-[
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210104091434601.png)](https://www.makeapie.com/editor.html?c=xX_IZAo6cg)
-[
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210104134740729.png)](https://www.makeapie.com/editor.html?c=x1ERS-LITQ)
-[
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210105112740953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjY5MTc4,size_16,color_FFFFFF,t_70)
-](https://www.makeapie.com/editor.html?c=xd3iXowAVa)

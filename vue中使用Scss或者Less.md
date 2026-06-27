@@ -46,13 +46,13 @@ module.exports = {
 
 # 二、vue项目中使用icon图标库
 
-## 1、去iconfont上下载：
+## 1、去iconfont上下载
 
-地址：https://www.iconfont.cn/
+地址：<https://www.iconfont.cn/>
 
 ## 2、下载
 
-![](https://not-have.github.io/file/images/202203260257382.png)
+![](./images/202203260257382.png)
 
 *注：把下载的文件解压后放入assets——>icon（自己创建）文件夹里。*
 
@@ -75,7 +75,7 @@ import "@/assets/icon/iconfont.css";
 </style>
 ```
 
-  ![image-20210830182404804](https://not-have.github.io/file/images/202203260257650.png)
+  ![image-20210830182404804](./images/202203260257650.png)
 
 # 三、vue中使用svg图
 
@@ -205,4 +205,3 @@ import "@/components/svg/index.js";
 ```
 
 注：如果修改 不改变颜色，请删除svg图中的style标签里 的每一项fill样式设置。
-

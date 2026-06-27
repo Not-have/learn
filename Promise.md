@@ -1,6 +1,6 @@
-文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise
+文档：<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise>
 
-​           https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises
+​           <https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises>
 
 # 一、认识
 
@@ -162,5 +162,3 @@ new Promise((resolve, reject) => {
     console.error(err)
 })
 ```
-
-# 二、

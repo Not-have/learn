@@ -1,6 +1,7 @@
-[文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+[文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)：<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty>
 
-## 1、Object.defineProperty(obj, prop, descriptor) 参数的含义：
+## 1、Object.defineProperty(obj, prop, descriptor) 参数的含义
+
 obj — 要进行操作的对象
 prop — 对对象中的那个属性进行操作，当写入的属性不存在时，就会给一个参数（对象中—），去添加这个属性
 descriptor — <font color=red>属性描述符</font>，对属性（第二个参数）进行操作（属性描述符：数据属性、存取属性）
@@ -21,13 +22,13 @@ Object.defineProperty(obj, 'sex', {
 console.log(obj)
 ```
 
- <img src="https://not-have.github.io/file/images/image-20221209000143154.png" alt="image-20221209000143154" style="zoom: 33%;" />
+ <img src="./images/image-20221209000143154.png" alt="image-20221209000143154" style="zoom: 33%;" />
 
 ## 2、属性描述符 的分类
 
 1）数据属性（数据属性一般都存在value，value 的默认值是 undefined）
 
-① configurable 
+① configurable
 
 false 代表该属性不可删除，也不可修改
 
@@ -75,7 +76,7 @@ Object.defineProperty(obj, 'sex', {
 console.log(Object.keys(obj)) // ['name', 'age'] 为 false 时，不可得到新增的 sex ,但是你使用的时候 不影响
 ```
 
-③ writable 表示是否可以修改属性的值 
+③ writable 表示是否可以修改属性的值
 
 默认值： false
 
@@ -164,7 +165,7 @@ obj.age = 25;
 console.log(obj.age)
 ```
 
-![image-20221210215915976](https://not-have.github.io/file/images/202212102159658.png)
+![image-20221210215915976](./images/202212102159658.png)
 
 ## 5、获取属性描述符
 
@@ -259,4 +260,3 @@ Object.freeze(obj)
 obj.name = '哈哈'
 console.log(obj)
 ```
-

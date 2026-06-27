@@ -1,4 +1,4 @@
-以下webpack的配置详情，请查看以下地址：https://juejin.cn/post/7010284695850057735
+以下webpack的配置详情，请查看以下地址：<https://juejin.cn/post/7010284695850057735>
 
 # 一、安装
 
@@ -7,7 +7,7 @@
 npm install vue@next
 ```
 
-## 1、webpack的起始配置如下：
+## 1、webpack的起始配置如下
 
 注：这个里面的配置使用参考webpack5+的基础配置。
 
@@ -220,11 +220,11 @@ app.mount("#app")
 
 注：
 
- ![image-20210912152121251](https://not-have.github.io/file/images/202203272337148.png)
+ ![image-20210912152121251](./images/202203272337148.png)
 
 上面这样写，页面视图并不会渲染，并且在控制台还会有一个警告：
 
- ![image-20210912152233469](https://not-have.github.io/file/images/202203272338921.png)
+ ![image-20210912152233469](./images/202203272338921.png)
 
 因为源代码解析有两个版本，所以我们要选择一个可以解析的版本：
 
@@ -232,9 +232,9 @@ vue版本一：runtime + compiler  这个是可以解析。
 
 vue版本二： runtime + only  这个是默认的，用他的时候，页面渲染不出来demo元素。
 
-## 2、目录结构如下：
+## 2、目录结构如下
 
- ![image-20210912153730638](https://not-have.github.io/file/images/202203272338394.png)
+ ![image-20210912153730638](./images/202203272338394.png)
 
 # 三、编写 App.vue 文件
 
@@ -682,9 +682,6 @@ module.exports = merge(commonConfig, {
 })
 ```
 
-![image-20210921185944336](https://not-have.github.io/file/images/202203272338054.png)
+![image-20210921185944336](./images/202203272338054.png)
 
-
-
-代码地址：https://www.lanzouw.com/ifYk0ubka2d
-
+代码地址：<https://www.lanzouw.com/ifYk0ubka2d>

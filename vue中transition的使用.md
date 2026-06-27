@@ -6,7 +6,7 @@
 
 <keep-alive>、<transition>、<transition-group> 和 <teleport> 组件都可以被打包工具 tree-shake。所以它们只会在被使用的时候被引入。如果你需要直接访问它们，也可以将它们显性导入。
 
-官网文档：https://v3.cn.vuejs.org/api/built-in-components.html#transition
+官网文档：<https://v3.cn.vuejs.org/api/built-in-components.html#transition>
 
 ## 2、transition原理
 
@@ -16,7 +16,7 @@
 
 3）如果没有找到JavaScript钩子并且也没有检测到CSS过渡/动画，DOM插入、删除操作将会立即执行。
 
-![image-20211115223944544](https://not-have.github.io/file/images/202203280037393.png)
+![image-20211115223944544](./images/202203280037393.png)
 
 # 二、transition 的name属性
 
@@ -44,7 +44,7 @@
 
 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08aac77ffdc1408494966948dee802b6~tplv-k3u1fbpfcp-zoom-1.image" />
 
-vue动画[过渡文档](https://v3.cn.vuejs.org/guide/transitions-enterleave.html#%E5%8D%95%E5%85%83%E7%B4%A0-%E7%BB%84%E4%BB%B6%E7%9A%84%E8%BF%87%E6%B8%A1)：https://v3.cn.vuejs.org/guide/transitions-overview.html
+vue动画[过渡文档](https://v3.cn.vuejs.org/guide/transitions-enterleave.html#%E5%8D%95%E5%85%83%E7%B4%A0-%E7%BB%84%E4%BB%B6%E7%9A%84%E8%BF%87%E6%B8%A1)：<https://v3.cn.vuejs.org/guide/transitions-overview.html>
 
 ## 2、CSS 过渡
 
@@ -258,23 +258,23 @@ export default {
 
 enter-from-class
 
-enter-active-class 
+enter-active-class
 
-enter-to-class 
+enter-to-class
 
-leave-from-class 
+leave-from-class
 
-leave-active-class 
+leave-active-class
 
 leave-to-class  
 
 他们的优先级高于普通的类名，这对于 Vue 的过渡系统和其他第三方 CSS 动画库，如 Animate.css. 结合使用十 分有用。
 
-https://v3.cn.vuejs.org/guide/transitions-enterleave.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%B8%A1-class-%E7%B1%BB%E5%90%8D
+<https://v3.cn.vuejs.org/guide/transitions-enterleave.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%B8%A1-class-%E7%B1%BB%E5%90%8D>
 
 # 四、JavaScript钩子
 
-https://v3.cn.vuejs.org/guide/transitions-enterleave.html#javascript-%E9%92%A9%E5%AD%90
+<https://v3.cn.vuejs.org/guide/transitions-enterleave.html#javascript-%E9%92%A9%E5%AD%90>
 
 ```vue
 <template>
@@ -283,12 +283,12 @@ https://v3.cn.vuejs.org/guide/transitions-enterleave.html#javascript-%E9%92%A9%E
     <hr />
     <transition appear 
         @before-enter="beforeEnter" 
-		@enter="enter" 
-		@after-enter="afterEnter" 
-		@enter-cancelled="enterCancelled" 
-		@before-leave="beforeLeave" 
-		@leave="leave" 
-		@after-leave="afterLeave"
+  @enter="enter" 
+  @after-enter="afterEnter" 
+  @enter-cancelled="enterCancelled" 
+  @before-leave="beforeLeave" 
+  @leave="leave" 
+  @after-leave="afterLeave"
         @leave-cancelled="leaveCancelled">
         <!-- 
             里面添加删除元素的时候，才会添加当动画
@@ -369,7 +369,7 @@ export default {
 
 # 五、animate.css的使用
 
-地址：https://animate.style
+地址：<https://animate.style>
 
 Animate.css是一个随时可用的跨浏览器动画库，可用于您的 Web 项目。非常适合强调、主页、滑块和注意力引导提示。
 
@@ -471,7 +471,7 @@ export default {
 
 # 六、gsap
 
-地址：https://greensock.com/
+地址：<https://greensock.com/>
 
 通过JavaScript为CSS属性、SVG、Canvas等设置动画，并且是浏览器兼容的。
 
@@ -583,7 +583,7 @@ export default {
 
 # 七、列表过渡
 
-文档：https://v3.cn.vuejs.org/guide/transitions-list.html
+文档：<https://v3.cn.vuejs.org/guide/transitions-list.html>
 
 ## 1、移动动画
 

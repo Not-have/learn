@@ -41,7 +41,7 @@ w2 ca
 
 1）打开
 
-http://127.0.0.1:8899/
+<http://127.0.0.1:8899/>
 
 2）配置插件
 
@@ -59,7 +59,7 @@ http://127.0.0.1:8899/
 
 例：
 
-打开 https://github.com/ 时，重定向到 www.baidu.com
+打开 <https://github.com/> 时，重定向到 <www.baidu.com>
 
 ![image-20250911004029227](./images/image-20250911004029227.png)
 
@@ -92,6 +92,3 @@ https://test.xxx.com/ http://localhost:8087/
 wss://localhost:8087 ws://localhost:5173
 ws://localhost:8087 ws://localhost:5173
 ```
-
-
-

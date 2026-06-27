@@ -1,12 +1,12 @@
 # 一、认识Webpack
 
-webpack地址：https://www.webpackjs.com/
+webpack地址：<https://www.webpackjs.com/>
 
 ​        webpack 是一个现代 JavaScript 应用程序的*静态模块打包器(module bundler)*。当 webpack 处理应用程序时，它会递归地构建一个*依赖关系图(dependency graph)*，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 *bundle*。
 
-① 打包bundler：webpack可以将帮助我们进行打包，所以它是一个打包工具 
+① 打包bundler：webpack可以将帮助我们进行打包，所以它是一个打包工具
 
-② 静态的static：这样表述的原因是我们最终可以将代码打包成最终的静态资源（部署到静态服务器）； 
+② 静态的static：这样表述的原因是我们最终可以将代码打包成最终的静态资源（部署到静态服务器）；
 
 ③ 模块化module：webpack默认支持各种模块化开发，ES Module、CommonJS、AMD等；
 
@@ -230,7 +230,7 @@ npm install webpack webpack-cli -D
 
 默认是走: scr—>index.js
 
-![image-20210901000726408](https://not-have.github.io/file/images/202203260310920.png)
+![image-20210901000726408](./images/202203260310920.png)
 
 3）scr里面的文件
 
@@ -293,7 +293,7 @@ webpack
 <script src="./dist/main.js"></script>
 ```
 
- ![image-20210901001614501](https://not-have.github.io/file/images/202203260314373.png)
+ ![image-20210901001614501](./images/202203260314373.png)
 
 <font color=red>注：在实际开发中很少使用全局的webpack。</font>
 
@@ -333,7 +333,7 @@ npx webpack --entry 入口文件的相对路径 --output-path 出口文件的相
 
 在package.json中创建scripts脚本，执行脚本打包即可
 
- ![aq43t-mxki3](https://not-have.github.io/file/images/202203260317121.png)
+ ![aq43t-mxki3](./images/202203260317121.png)
 
 这个时候，你只要执行  `npm run build` 就好
 
@@ -389,7 +389,7 @@ module.exports = {
 
 ![image preview](F:\图片\Morkdown\acrsm-ad585.png)一般不建议改配置文件名。
 
- ![aadfv-g39nl](https://not-have.github.io/file/images/202203260320423.png)
+ ![aadfv-g39nl](./images/202203260320423.png)
 
 # 三、webpack对CSS资源进行打包
 
@@ -416,17 +416,17 @@ import "./js/element"
 
 4）进行打包，然后在index.html中引入，就可以使用
 
- ![image preview](https://not-have.github.io/file/images/202203260323952.jpg)
+ ![image preview](./images/202203260323952.jpg)
 
 ## 2、对css文件，进行打包
 
 <font color=red>CSS也要引入入口文件，使用import引入，引入方法，有下面两种（引入位置 *一般是在使用的地方*）。</font>
 
- ![image preview](https://not-have.github.io/file/images/202203260323611.png)
+ ![image preview](./images/202203260323611.png)
 
 注：当webopack要编译css的时候，你需要下载webpack编译的依赖，否则他会报以下的这个错误：
 
-![image preview](https://not-have.github.io/file/images/202203260324005.png)
+![image preview](./images/202203260324005.png)
 
 ### 1）下载依赖
 
@@ -447,11 +447,11 @@ import "style-loader!css-loader!css文件的相对路径"
 
 ### 3）配置的方式
 
-webpack.config.js文件中配置信息： 
+webpack.config.js文件中配置信息：
 
 ① module.rules中允许我们配置多个loader（因为我们也会继续使用其他的loader，来完成其他文件的加载）；
 
-② 这种方式可以更好的表示loader的配置，也方便后期的维护，同时也让你对各个Loader有一个全局的概览； 
+② 这种方式可以更好的表示loader的配置，也方便后期的维护，同时也让你对各个Loader有一个全局的概览；
 
 ③ rules属性对应的值是一个数组：[Rule]   数组中存放的是一个个的Rule，Rule是一个对象，对象中可以设置多个属性：
 
@@ -463,7 +463,7 @@ c、use:[ Array ]  这个数组里面是你所需要的全部loader，因为 有
 
 同时这个 Array 是对象组成的，因为你有时候需要给里面传入参数，这个对象的参数如下：
 
-loader：必须有一个 loader属性，对应的值是一个字符串； 
+loader：必须有一个 loader属性，对应的值是一个字符串；
 
 options：可选的属性，值是一个字符串或者对象，值会被传入到loader中。
 
@@ -512,7 +512,7 @@ module.exports = {
 
 注：当loader加载顺序错误会报以下错误：
 
-![image preview](https://not-have.github.io/file/images/202203260325916.png)
+![image preview](./images/202203260325916.png)
 
 # 四、处理less文件
 
@@ -529,7 +529,7 @@ npm install less-loader -D
 
 ## 2、要在打包的js文件里面引入less
 
- ![image preview](https://not-have.github.io/file/images/202203260326356.png)
+ ![image preview](./images/202203260326356.png)
 
 ## 3、在webpacjk.config.js里面进行配置
 
@@ -625,7 +625,7 @@ module.exports = {
 
 ## 1、PostCSS的介绍
 
-1）PostCSS是一个通过JavaScript来转换样式的工具； 
+1）PostCSS是一个通过JavaScript来转换样式的工具；
 
 2）这个工具可以帮助我们进行一些CSS的转换和适配，比如自动添加浏览器前缀、css样式的重置。
 
@@ -794,13 +794,11 @@ module.exports = {
 
 webpack.config.js里面的内容不改变。
 
- ![image preview](https://not-have.github.io/file/images/202203260327755.png)
-
-
+ ![image preview](./images/202203260327755.png)
 
 # 六、[asset-modules （资源模块类型）](https://webpack.js.org/guides/asset-modules/#root)
 
-webpack4中loader的使用： https://v4.webpack.js.org/loaders/#root
+webpack4中loader的使用： <https://v4.webpack.js.org/loaders/#root>
 
 ## 1、介绍
 
@@ -898,7 +896,7 @@ module.exports = {
 
 插件是 webpack 的[支柱](https://github.com/webpack/tapable)功能。webpack 自身也是构建于，你在 webpack 配置中用到的相同的插件系统之上，插件目的在于解决 [loader](https://www.webpackjs.com/concepts/loaders) 无法实现的其他事，例：
 
-① Loader是用于特定的模块类型进行转换； 
+① Loader是用于特定的模块类型进行转换；
 
 ② Plugin可以用于执行更加广泛的任务，比如打包优化、资源管理、环境变量注入等;
 
@@ -942,7 +940,7 @@ module.exports = {
 
 注：生成打包中的入口html。
 
-html-webpack-plugin 官方文档：https://www.webpackjs.com/plugins/html-webpack-plugin/
+html-webpack-plugin 官方文档：<https://www.webpackjs.com/plugins/html-webpack-plugin/>
 
 ### 1）安装
 
@@ -1034,11 +1032,11 @@ module.exports = {
 
 <font color=red>注：</font> ① DefinePlugin是和 HtmlWebpackPlugin 配合使用的；
 
-​         ② 有时候模块中会有一个BASE_URL的常量，但是 因为我们并没有设置过该值的时候，就会报以下的错误：![image preview](https://not-have.github.io/file/images/202203260328390.png)
+​         ② 有时候模块中会有一个BASE_URL的常量，但是 因为我们并没有设置过该值的时候，就会报以下的错误：![image preview](./images/202203260328390.png)
 
 ​          所以这个时候，就要使用DefinePlugin插件。
 
-​         ③ 文档：https://www.webpackjs.com/plugins/define-plugin/
+​         ③ 文档：<https://www.webpackjs.com/plugins/define-plugin/>
 
 ### 1）使用
 
@@ -1248,15 +1246,13 @@ module.exports = {
 }
 ```
 
-
-
 注：可以使用 code-splitting  进行代码分割。
 
 # 八、Babel的使用
 
-注：Babel官网：https://babeljs.io/
+注：Babel官网：<https://babeljs.io/>
 
-​	    https://github.com/jamiebuilds/the-super-tiny-compiler
+​     <https://github.com/jamiebuilds/the-super-tiny-compiler>
 
 ## 1、Babel命令行使用
 
@@ -1264,7 +1260,7 @@ module.exports = {
 
 1）在命令行尝试使用babel，需要安装如下库：
 
-@babel/core：babel的核心代码，必须安装； 
+@babel/core：babel的核心代码，必须安装；
 
 @babel/cli：可以让我们在命令行使用babel （如果在webpack中使用，就不需要安装他了）
 
@@ -1314,7 +1310,7 @@ npm install @babel/plugin-transform-block-scoping -D
 npx babel demo.js --out-file dist.js  --plugins=@babel/plugin-transform-arrow-functions,@babel/plugin-transform-block-scoping
 ```
 
-6）preset 
+6）preset
 
 注：像上面一样一个个依赖安装使用，过于麻烦，我们可以使用preset（预设）
 
@@ -1349,7 +1345,7 @@ C --> D(代码生成)
 D --> E(目标源码)
 ```
 
- ![image preview](https://not-have.github.io/file/images/202203260330027.png)
+ ![image preview](./images/202203260330027.png)
 
 ## 2、Babel在webpack中的使用（babel-loader）
 
@@ -1462,7 +1458,7 @@ module.exports = {
 
 ① 在跟目录下，创建如下文件
 
-babel.config.js（或者.cjs，.mjs）文件； 
+babel.config.js（或者.cjs，.mjs）文件；
 
 .babelrc.js（或者.babelrc，.cjs，.mjs）文件；
 
@@ -1482,7 +1478,7 @@ module.exports = {
 
 ② webpack.config.js中的写法:
 
-![image preview](https://not-have.github.io/file/images/202203260331423.png)
+![image preview](./images/202203260331423.png)
 
 # 九、webpack自动编译
 
@@ -1492,9 +1488,9 @@ module.exports = {
 
 在该模式下，webpack依赖图中的所有文件，只要有一个发生了更新，那么代码将被重新编译。
 
-### 1）如何开启watch呢？两种方式： 
+### 1）如何开启watch呢？两种方式
 
-方式一：在导出的配置中，添加 watch: true； 
+方式一：在导出的配置中，添加 watch: true；
 
 方式二：在启动webpack的命令中，添加 --watch的标识；
 
@@ -1637,7 +1633,7 @@ webpack serve后面可以跟 配置文件地址，写法：webpack serve --confi
 npm run serve
 ```
 
- ![image preview](https://not-have.github.io/file/images/202203260332729.png)
+ ![image preview](./images/202203260332729.png)
 
 这个时候的打包生成的文件夹里面是空的，他会放在内存中。
 
@@ -1762,13 +1758,13 @@ if(module.hot){
 
 ③ 执行的效果：
 
- ![image preview](https://not-have.github.io/file/images/202203260333605.png)
+ ![image preview](./images/202203260333605.png)
 
 ### 2）host配置
 
 ①localhost 和 0.0.0.0 的区别
 
-a、localhost：本质上是一个域名，通常情况下会被解析成127.0.0.1; 
+a、localhost：本质上是一个域名，通常情况下会被解析成127.0.0.1;
 
 b、127.0.0.1：回环地址(Loop Back Address)，表达的意思其实是我们主机自己发出去的包，直接被自己接收;
 
@@ -1790,21 +1786,21 @@ f、们监听 0.0.0.0时，在同一个网段下的主机中，通过ip地址是
 
 ② host设置主机地址：
 
-默认值是localhost； 
+默认值是localhost；
 
 如果希望其他地方也可以访问，可以设置为 0.0.0.0。
 
 ### 3）port设置监听的端口，默认情况下是8080
 
-![image preview](https://not-have.github.io/file/images/202203260333587.png)
+![image preview](./images/202203260333587.png)
 
-### 4）compress是否为静态文件开启gzip 
+### 4）compress是否为静态文件开启gzip
 
 注：他对html没有压缩，同时这个开启不开启无所谓，因为他是本地传输。
 
 当你设置了这个之后，浏览器每次的请求资源就会变成，下面的这个样子：
 
- ![image preview](https://not-have.github.io/file/images/202203260335635.png)
+ ![image preview](./images/202203260335635.png)
 
 ```javascript
     devServer:{
@@ -1816,7 +1812,7 @@ f、们监听 0.0.0.0时，在同一个网段下的主机中，通过ip地址是
     },
 ```
 
- ![image preview](https://not-have.github.io/file/images/202203260336403.png)
+ ![image preview](./images/202203260336403.png)
 
 ## 4、跨域代理（Proxy）
 
@@ -1849,29 +1845,29 @@ devServer: {
 
 ## 5、resolve模块解析
 
-### 1）resolve用于设置模块如何被解析：
+### 1）resolve用于设置模块如何被解析
 
-在开发中我们会有各种各样的模块依赖，这些模块可能来自于自己编写的代码，也可能来自第三方库； 
+在开发中我们会有各种各样的模块依赖，这些模块可能来自于自己编写的代码，也可能来自第三方库；
 
 resolve可以帮助webpack从每个 require/import 语句中，找到需要引入到合适的模块代码；
 
 webpack 使用 enhanced-resolve 来解析文件路径
 
-### 2）webpack能解析三种文件路径： 
+### 2）webpack能解析三种文件路径
 
-① 绝对路径 
+① 绝对路径
 
-由于已经获得文件的绝对路径，因此不需要再做进一步解析。 
+由于已经获得文件的绝对路径，因此不需要再做进一步解析。
 
-② 相对路径 
+② 相对路径
 
 在这种情况下，使用 import 或 require 的资源文件所处的目录，被认为是上下文目录，在 import/require 中给定的相对路径，会拼接此上下文路径，来生成模块的绝对路径。
 
-③ 模块路径 
+③ 模块路径
 
 在 resolve.modules中指定的所有目录检索模块， 默认值是 ['node_modules']，所以默认会从node_modules中查找文件。
 
-![image preview](https://not-have.github.io/file/images/202203260336299.png)
+![image preview](./images/202203260336299.png)
 
 ### 3）使用
 
@@ -2027,4 +2023,4 @@ module.exports = {
 }
 ```
 
-全部代码地址：https://www.lanzouw.com/iaDu3uba7le
+全部代码地址：<https://www.lanzouw.com/iaDu3uba7le>

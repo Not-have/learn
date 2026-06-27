@@ -1,6 +1,6 @@
-文档：https://next.vuex.vuejs.org/zh/
+文档：<https://next.vuex.vuejs.org/zh/>
 
-提供一个Vue devtools谷歌插件安装包：https://wwe.lanzouw.com/inHnkyjawwh
+提供一个Vue devtools谷歌插件安装包：<https://wwe.lanzouw.com/inHnkyjawwh>
 
 # 一、Vuex认识
 
@@ -729,7 +729,7 @@ export default {
 
 b、另一种提交风格
 
-![image-20220109220528508](https://not-have.github.io/file/images/202203260304138.png)
+![image-20220109220528508](./images/202203260304138.png)
 
 2）将Mutation中方法封装成常量
 
@@ -1020,7 +1020,7 @@ export default {
 
 ## 14、Module
 
-文档：https://next.vuex.vuejs.org/zh/guide/modules.html#%E5%B8%A6%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%91%E5%AE%9A%E5%87%BD%E6%95%B0
+文档：<https://next.vuex.vuejs.org/zh/guide/modules.html#%E5%B8%A6%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%91%E5%AE%9A%E5%87%BD%E6%95%B0>
 
 由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。
 
@@ -1386,4 +1386,3 @@ export default {
 }
 </script>
 ```
-

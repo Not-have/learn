@@ -1,6 +1,6 @@
-注：对象的操作可查看：https://juejin.cn/post/7175524754894356540
+注：对象的操作可查看：<https://juejin.cn/post/7175524754894356540>
 
-[new 运算符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new)：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new
+[new 运算符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new)：<https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new>
 
 # 一、构造函数
 
@@ -38,7 +38,7 @@ console.log(p.__proto__ === fun.prototype) // true
 
 5）如果构造函数没有返回非空对象，则返回创建出来的新对象（自己会 return 返回）。
 
-![image-20221211000200454](https://not-have.github.io/file/images/202212110002357.png)
+![image-20221211000200454](./images/202212110002357.png)
 
 ## 2、构造函数初步认识
 
@@ -69,7 +69,7 @@ let obj = {name: '里斯', age: 25} // 每个对象中都有 [[prototype]]，但
 console.log(obj.__proto__) // {} __proto__ 暂时指向一个空的对象
 ```
 
-注：但是早期的 ECMA 是没有查看 [[prototype]] 的 API 的，但是浏览器提供了这个属性 <font color=red> _ _ proto _ _ </font>。
+注：但是早期的 ECMA 是没有查看 [[prototype]] 的 API 的，但是浏览器提供了这个属性 <font color=red> __proto__ </font>。
 
 1）获取对象的原型
 
@@ -150,7 +150,7 @@ const  p = new fun();
 console.log(p.name, p.eat())
 ```
 
- ![image-20221211223219009](https://not-have.github.io/file/images/202212112232305.png)
+ ![image-20221211223219009](./images/202212112232305.png)
 
 2）直接修改 prototype 整个对象
 
@@ -206,7 +206,7 @@ p.eating()
 
 面向对象的三大特性：<font color=red>封装、继承、多态</font>。
 
-[文档](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object-oriented_programming)：https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object-oriented_programming
+[文档](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object-oriented_programming)：<https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object-oriented_programming>
 
 ## 1、原型链
 
@@ -214,7 +214,7 @@ p.eating()
 
 注：在对象中去获取属性的时候，如果当前对象中不存在，就去原型对象上找，并且会沿着原型链一直去查找，直到最顶层。
 
- ![image-20221214000551013](https://not-have.github.io/file/images/202212140005202.png)
+ ![image-20221214000551013](./images/202212140005202.png)
 
 2）原型链的顶层是什么？来自什么地方？
 
@@ -226,15 +226,15 @@ p.eating()
 
 ② Object.prototype 是最顶层的原型，可参考下面的例子：
 
-![image-20221220234048311](https://not-have.github.io/file/images/202212202343749.png)
+![image-20221220234048311](./images/202212202343749.png)
 
 ③ Object 是一个构造函数；
 
 ④ Object.prototype 不是一个空对象，二叔里面的属性默认值为不可枚举的状态；
 
-![image-20221221234213171](https://not-have.github.io/file/images/image-20221221234213171.png)
+![image-20221221234213171](./images/image-20221221234213171.png)
 
-⑤ 对象的原型是：__ proto __ ，函数的原型是：prototype；
+⑤ 对象的原型是：__proto__ ，函数的原型是：prototype；
 
 ⑥ 当原型指向 null 的时候，就代表他为最顶层的原型；
 
@@ -294,9 +294,8 @@ console.log(stu.eating())
 
 ② 创建两个对象
 
-![image-20221227000056950](https://not-have.github.io/file/images/image-20221227000056950.png)
+![image-20221227000056950](./images/image-20221227000056950.png)
 
 a、直接修改对象上的属性，是给本对象添加了一个新属性；
 
 b、获取引用，修改引用中的值，会相互影响；
-

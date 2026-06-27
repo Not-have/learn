@@ -2,7 +2,7 @@
 
 创建一个项目
 
-![image-20241029234909142](https://not-have.github.io/file/images/image-20241029234909142.png)
+![image-20241029234909142](./images/image-20241029234909142.png)
 
 注：
 
@@ -47,7 +47,7 @@ struct Style {
 }
 ```
 
- ![image-20240810164638151](https://not-have.github.io/file/images/image-20240810164638151.png)
+ ![image-20240810164638151](./images/image-20240810164638151.png)
 
 ## 2、Button
 
@@ -72,7 +72,7 @@ struct Index {
 }
 ```
 
-![image-20241103002905181](https://not-have.github.io/file/images/image-20241103002905181.png)
+![image-20241103002905181](./images/image-20241103002905181.png)
 
 ## 3、Image 的使用
 
@@ -93,7 +93,7 @@ struct Index {
 }
 ```
 
-![image-20241103004339650](https://not-have.github.io/file/images/image-20241103004339650.png)
+![image-20241103004339650](./images/image-20241103004339650.png)
 
 ## 4、相对布局
 
@@ -295,7 +295,7 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-		// 设置启动页
+  // 设置启动页
     windowStage.loadContent('pages/Router', (err) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
@@ -386,8 +386,6 @@ struct UiAbility {
 ```
 
 ![image-20241222033558265](./images/image-20241222033558265.png)
-
-
 
 ### 2）使用AppStorage/LocalStorage进行数据同步
 

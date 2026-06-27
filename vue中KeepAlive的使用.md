@@ -104,8 +104,6 @@ export default {
 </script>
 ```
 
- ![test](https://gitee.com/Green_chicken/picture/raw/master/test.gif)
-
 # 二、keepalive属性
 
 ## 1、include 只有名称匹配的组件会被缓存
@@ -114,29 +112,29 @@ export default {
 
 ### 1） 字符串书写的时候，中间使用逗号分隔，分割后 最好不要加空格
 
- ![image-20211103000728064](https://not-have.github.io/file/images/202203260259610.png)
+ ![image-20211103000728064](./images/202203260259610.png)
 
 ### 2) 正则的写法
 
- ![image-20211103001020430](https://not-have.github.io/file/images/202203260259898.png)
+ ![image-20211103001020430](./images/202203260259898.png)
 
 ### 3）数组的写法
 
- ![image-20211103001107074](https://not-have.github.io/file/images/202203260300943.png)
+ ![image-20211103001107074](./images/202203260300943.png)
 
 ## 2、exclude 任何名称匹配的组件都不 会被缓存
 
 ### 1） 字符串书写的时候，中间使用逗号分隔，分割后 最好不要加空格
 
- ![image-20211103001422935](https://not-have.github.io/file/images/202203260300098.png)
+ ![image-20211103001422935](./images/202203260300098.png)
 
 ### 2) 正则的写法
 
- ![image-20211103001355427](https://not-have.github.io/file/images/202203260300775.png)
+ ![image-20211103001355427](./images/202203260300775.png)
 
 ### 3）数组的写法
 
-  ![image-20211103001327015](https://not-have.github.io/file/images/202203260301296.png)
+  ![image-20211103001327015](./images/202203260301296.png)
 
 ## 3、max
 
@@ -154,4 +152,3 @@ export default {
         console.log("设置了keep-live之后，每次离开执行的钩子");
     }
 ```
-

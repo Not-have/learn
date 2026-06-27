@@ -12,11 +12,11 @@
 
 ### 1、navicat 报 2059的解决
 
-![image-20231004154653759](https://not-have.github.io/file/images/image-20231004154653759.png)
+![image-20231004154653759](./images/image-20231004154653759.png)
 
 #### 1）win
 
-##### 启动 mysql 
+##### 启动 mysql
 
 ```bash
 # net start 查看所有正在运行的服务
@@ -26,7 +26,7 @@ net start MySQL80
 
 启动成功：
 
- ![image-20231004155703114](https://not-have.github.io/file/images/image-20231004155703114.png)
+ ![image-20231004155703114](./images/image-20231004155703114.png)
 
 ##### 执行指令
 
@@ -34,21 +34,21 @@ net start MySQL80
 mysql -hlocalhost -uroot -p
 ```
 
-![image-20231006211754398](https://not-have.github.io/file/images/image-20231006211754398.png)
+![image-20231006211754398](./images/image-20231006211754398.png)
 
 ```bash
 alter user 'root'@'localhost' identified by 'root' password expire never;
 ```
 
-![image-20231006212256472](https://not-have.github.io/file/images/image-20231006212256472.png)
+![image-20231006212256472](./images/image-20231006212256472.png)
 
 ```bash
 alter user 'root'@'localhost' identified with mysql_native_password by 'root';
 ```
 
-![image-20231006212315263](https://not-have.github.io/file/images/image-20231006212315263.png)
+![image-20231006212315263](./images/image-20231006212315263.png)
 
-![image-20231006212431164](https://not-have.github.io/file/images/image-20231006212431164.png)
+![image-20231006212431164](./images/image-20231006212431164.png)
 
 进行以上的操作，你就链接成功了。
 
@@ -75,12 +75,6 @@ mysql.server restart
 
 ![image-20260425172955792](images/image-20260425172955792.png)
 
-
-
-
-
-
-
 ##### 安装
 
 ```bash
@@ -100,7 +94,7 @@ mysqladmin -h127.0.0.1 -P3306 -uroot -p ping
 
 mysql -hlocalhost -uroot -p 报 'mysql' 不是内部或外部命令，也不是可运行的程序 或批处理文件
 
-![image-20231006211644370](https://not-have.github.io/file/images/image-20231006211644370.png)
+![image-20231006211644370](./images/image-20231006211644370.png)
 
 ```
 C:\Program Files\MySQL\MySQL Server 8.0\bin
@@ -118,19 +112,19 @@ C:\Program Files\MySQL\MySQL Server 8.0\bin
 
 ```mysql
 create table t_book(
-	id int,
-	-- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
-	name varchar(30),
-	author varchar(10),
-	price double
+ id int,
+ -- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
+ name varchar(30),
+ author varchar(10),
+ price double
 );
 ```
 
-![image-20231006215222347](https://not-have.github.io/file/images/image-20231006215222347.png)
+![image-20231006215222347](./images/image-20231006215222347.png)
 
 ### 2、增删改查
 
-![image-20231006220601208](https://not-have.github.io/file/images/image-20231006220601208.png)
+![image-20231006220601208](./images/image-20231006220601208.png)
 
 ## 四、部分指令（DDL）
 
@@ -195,9 +189,9 @@ select database();
 
 ```mysql
 create table test01(
-	id int(11) primary key,
-	-- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
-	name varchar(30)
+ id int(11) primary key,
+ -- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
+ name varchar(30)
 );
 
 insert into test01 (id, name) values(2, "哈哈哈");
@@ -207,11 +201,11 @@ insert into test01 (id, name) values(2, "哈哈哈");
 
 ```mysql
 create table test02(
-	id int(11),
-	-- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
-	name varchar(30),
-	age int,
-	primary key(id)  -- 指定主键
+ id int(11),
+ -- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
+ name varchar(30),
+ age int,
+ primary key(id)  -- 指定主键
 )
 
 INSERT INTO test02(id, name, age) VALUES(2, '呵呵呵', 1);
@@ -221,10 +215,10 @@ INSERT INTO test02(id, name, age) VALUES(2, '呵呵呵', 1);
 
 ```mysql
 create table test03(
-	id int(11),
-	-- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
-	name varchar(30),
-	age int
+ id int(11),
+ -- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
+ name varchar(30),
+ age int
 )
 
 INSERT INTO test03(id, name, age) VALUES(2, '呵呵呵', 1);
@@ -235,7 +229,7 @@ alter table test03 add primary key (id);
 
 ④ 直接在 navicat  中设置
 
-![image-20240526225055560](https://not-have.github.io/file/images/image-20240526225055560.png)
+![image-20240526225055560](./images/image-20240526225055560.png)
 
 #### 2）自增约束 `primary key auto_increment`
 
@@ -243,9 +237,9 @@ alter table test03 add primary key (id);
 
 ```mysql
 create table test04(
-	id int(11) primary key auto_increment,
-	-- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
-	name varchar(30)
+ id int(11) primary key auto_increment,
+ -- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
+ name varchar(30)
 )
 
 insert into test04(name) values("哈哈哈");
@@ -262,9 +256,9 @@ insert into test04(name) values("啦啦啦啦");
 
 ```mysql
 create table test05(
-	id int(11),
-	-- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
-	name varchar(30) unique
+ id int(11),
+ -- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
+ name varchar(30) unique
 )
 
 insert into test05(id, name) values(1, "哈哈哈");
@@ -276,9 +270,9 @@ insert into test05(id, name) values(2, "哈哈哈");
 
 ```mysql
 create table test06(
-	id int(11),
-	-- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
-	name varchar(30) not null
+ id int(11),
+ -- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
+ name varchar(30) not null
 )
 
 -- 报错：1364 - Field 'name' doesn't have a default value
@@ -290,13 +284,13 @@ insert into test06(id, name) values(1, "呵呵呵");
 insert into test06(id, name) values(1, "呵呵呵");
 ```
 
-#### 5）默认值 
+#### 5）默认值
 
 ```mysql
 create table test07(
-	id int(11),
-	-- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
-	sex char(1) default "女"
+ id int(11),
+ -- mysql 中没有 String 所以使用 varchar(这个里面定义字符的长度)
+ sex char(1) default "女"
 )
 
 insert into test06(id) values(1);
@@ -311,18 +305,18 @@ insert into test06(id, sex) values(1, "男");
 ```mysql
 -- 商品
 create table tb_goods(
-	id int primary key,
-	name varchar(20),
-	description varchar(100)
+ id int primary key,
+ name varchar(20),
+ description varchar(100)
 )
 
 -- 订单（订单表关联了商品）
 create table tb_order(
-	id int primary key,
-	time datetime,
+ id int primary key,
+ time datetime,
   goodId int,
-	-- 设置外键：constraint 外键名 foreign key (当前表中的列名) references 表(主键) 
-	constraint relation_order_goods foreign key (goodId) references tb_goods(id)
+ -- 设置外键：constraint 外键名 foreign key (当前表中的列名) references 表(主键) 
+ constraint relation_order_goods foreign key (goodId) references tb_goods(id)
 )
 
 
@@ -349,7 +343,7 @@ delete from tb_goods where id = 1;
 delete from tb_goods where id = 3; -- 有引用
 ```
 
-![image-20240527001831151](https://not-have.github.io/file/images/image-20240527001831151.png)
+![image-20240527001831151](./images/image-20240527001831151.png)
 
 ## 五、查询
 
@@ -360,13 +354,13 @@ delete from tb_goods where id = 3; -- 有引用
 DROP TABLE IF EXISTS tb_search;
 
 CREATE TABLE tb_search (
-	id INT(11) DEFAULT NULL,
-	name VARCHAR(99) DEFAULT NULL,
-	age INT(11) DEFAULT NULL,
-	sex CHAR(6) DEFAULT NULL,
-	score CHAR(11) DEFAULT NULL,
-	cid INT(11) DEFAULT NULL,
-	groupLeaderId INT(11) DEFAULT NULL
+ id INT(11) DEFAULT NULL,
+ name VARCHAR(99) DEFAULT NULL,
+ age INT(11) DEFAULT NULL,
+ sex CHAR(6) DEFAULT NULL,
+ score CHAR(11) DEFAULT NULL,
+ cid INT(11) DEFAULT NULL,
+ groupLeaderId INT(11) DEFAULT NULL
 );
 
 
@@ -542,22 +536,22 @@ SELECT * FROM tb_search LIMIT 2, 2;
 
 `UNION` 联合数据，重复数据会去重；
 
-`UNION ALL ` 联合数据，重复数据不会去重，保留所有的数据；
+`UNION ALL` 联合数据，重复数据不会去重，保留所有的数据；
 
 ```mysql
 create table tb_test01(
-	id int,
-	name varchar(20),
-	age INT,
-	description varchar(100)
+ id int,
+ name varchar(20),
+ age INT,
+ description varchar(100)
 )
 insert into tb_test01(id, name, age,description) values(1, "哈哈哈", 16,"手机");
 insert into tb_test01(id, name, age, description) values(2, "啊啊", 18, "手机");
 
 create table tb_test02(
-	id int primary key,
-	name varchar(20),
-	description varchar(100)
+ id int primary key,
+ name varchar(20),
+ description varchar(100)
 )
 
 INSERT INTO tb_test02(id, name, description) VALUES(2, '测试1', "test");
@@ -587,7 +581,7 @@ SELECT id, name FROM tb_test02
 
 注：连接查询是将多张表数据链接在一起（横向）查询返回。
 
-![image-20240617225909241](https://not-have.github.io/file/images/image-20240617225909241.png)
+![image-20240617225909241](./images/image-20240617225909241.png)
 
 这就是不正确的，`链接查询最重要的就是过滤条件`。
 
@@ -607,13 +601,13 @@ SELECT id, name FROM tb_test02
 DROP TABLE IF EXISTS tb_student;
 
 CREATE TABLE tb_student (
-	id INT(11) DEFAULT NULL,
-	name VARCHAR(99) DEFAULT NULL,
-	age INT(11) DEFAULT NULL,
-	sex CHAR(6) DEFAULT NULL,
-	score CHAR(11) DEFAULT NULL,
-	cid INT(11) DEFAULT NULL,
-	groupLeaderId INT(11) DEFAULT NULL
+ id INT(11) DEFAULT NULL,
+ name VARCHAR(99) DEFAULT NULL,
+ age INT(11) DEFAULT NULL,
+ sex CHAR(6) DEFAULT NULL,
+ score CHAR(11) DEFAULT NULL,
+ cid INT(11) DEFAULT NULL,
+ groupLeaderId INT(11) DEFAULT NULL
 );
 
 
@@ -634,9 +628,9 @@ INSERT INTO tb_student VALUES (11, "张十二", 19, "女", 23, 1, 19);
 DROP TABLE IF EXISTS tb_class;
 
 CREATE TABLE tb_class (
-	cid INT(11) DEFAULT NULL,
-	cname VARCHAR(99) DEFAULT NULL,
-	caddress VARCHAR(11) DEFAULT NULL
+ cid INT(11) DEFAULT NULL,
+ cname VARCHAR(99) DEFAULT NULL,
+ caddress VARCHAR(11) DEFAULT NULL
 );
 
 
@@ -650,7 +644,7 @@ SELECT * FROM 表名一 INNER JOIN 表名二 on 表名一.字段名 = 表名二.
 SELECT * FROM tb_student INNER JOIN tb_class on tb_student.cid = tb_class.cid;
 ```
 
-![image-20240617232342497](https://not-have.github.io/file/images/image-20240617232342497.png)
+![image-20240617232342497](./images/image-20240617232342497.png)
 
 ```mysql
 -- 指定学生 学号 姓名 班号 班名
@@ -667,7 +661,7 @@ on s.cid = c.cid;
 SELECT tb_student.id, tb_student.name, tb_class.cname FROM tb_student, tb_class WHERE tb_student.cid = tb_class.cid;
 ```
 
- ![image-20240617232654730](https://not-have.github.io/file/images/image-20240617232654730.png)
+ ![image-20240617232654730](./images/image-20240617232654730.png)
 
 特点：
 
@@ -690,13 +684,13 @@ SELECT * FROM 表名一 LEFT|RIGHT OUTER JOIN 表名二 on 表名一.字段名 =
 DROP TABLE IF EXISTS tb_student;
 
 CREATE TABLE tb_student (
-	id INT(11) DEFAULT NULL,
-	name VARCHAR(99) DEFAULT NULL,
-	age INT(11) DEFAULT NULL,
-	sex CHAR(6) DEFAULT NULL,
-	score CHAR(11) DEFAULT NULL,
-	cid INT(11) DEFAULT NULL,
-	groupLeaderId INT(11) DEFAULT NULL
+ id INT(11) DEFAULT NULL,
+ name VARCHAR(99) DEFAULT NULL,
+ age INT(11) DEFAULT NULL,
+ sex CHAR(6) DEFAULT NULL,
+ score CHAR(11) DEFAULT NULL,
+ cid INT(11) DEFAULT NULL,
+ groupLeaderId INT(11) DEFAULT NULL
 );
 
 
@@ -716,9 +710,9 @@ INSERT INTO tb_student VALUES (11, "张十二", 19, "女", 23, 1, 19);
 DROP TABLE IF EXISTS tb_class;
 
 CREATE TABLE tb_class (
-	cid INT(11) DEFAULT NULL,
-	cname VARCHAR(99) DEFAULT NULL,
-	caddress VARCHAR(11) DEFAULT NULL
+ cid INT(11) DEFAULT NULL,
+ cname VARCHAR(99) DEFAULT NULL,
+ caddress VARCHAR(11) DEFAULT NULL
 );
 
 
@@ -766,7 +760,7 @@ SELECT * FROM tb_student WHERE cid = (SELECT cid FROM tb_student WHERE id = 1);
 
 [docs](https://www.mysql.net.cn/doc/refman/8.0/en/functions.html)
 
- ### 1、字符串函数
+### 1、字符串函数
 
 | 名字                         | 描述                                                         | 示例                                                         |
 | :--------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -834,7 +828,7 @@ SELECT STR_TO_DATE('2024年06月19日','%Y年%m月%d日');
 
 ```mysql
 -- =============== 流程函数 ================
--- IF(expr1,expr2,expr3)	如果expr1为真，则返回expr2，否则返回expr3
+-- IF(expr1,expr2,expr3) 如果expr1为真，则返回expr2，否则返回expr3
 -- isnull()函数,判断是否为空
 -- isnull(字段) 如果是null,返回1 不是null返回0
 
@@ -847,11 +841,11 @@ select sid,sname,if(age >= 18,'成年','未成年') from tb_student;
 -- 查询学生id,姓名,成绩,如果成绩为null,显示缺考
 select sid,sname,if(isnull(score) = 1,'缺考',score) from tb_student;
 
--- IFNULL(expr1,expr2)	如果 expr1不是NULL,则返回expr1，否则返回expr2；
+-- IFNULL(expr1,expr2) 如果 expr1不是NULL,则返回expr1，否则返回expr2；
 -- 查询学生id,姓名,成绩,如果成绩为null,显示缺考
 select sid,sname,ifnull(score,'缺考') 成绩 from stu;
 
--- CASE [value] WHEN [value1] THEN[result1]… ELSE[default] END	如果value等于value1, 返回result1,否则返回default
+-- CASE [value] WHEN [value1] THEN[result1]… ELSE[default] END 如果value等于value1, 返回result1,否则返回default
 select case 4 
 when 1 then '一'
 when 2 then '二'
@@ -868,7 +862,7 @@ end as 结果
 from tb_student;
 
 -- 范围判断
--- CASE WHEN [expr1] THEN [result1]… ELSE [default] END	如果expr是真, 返回result1,否则返回default
+-- CASE WHEN [expr1] THEN [result1]… ELSE [default] END 如果expr是真, 返回result1,否则返回default
 -- 查询学生id,姓名,成绩,及等级(60以下不及格,60-70,及格,71-80,中等,81-90良好,91-100优秀)
 select sid,sname,score,case
 when score < 60 then '不及格'
@@ -885,9 +879,9 @@ from tb_student;
 
 ### 1、下载 JBDC 驱动
 
-地址：https://dev.mysql.com/downloads/connector/j/?os=26
+地址：<https://dev.mysql.com/downloads/connector/j/?os=26>
 
-![image-20231119220940508](https://not-have.github.io/file/images/image-20231119220940508.png)
+![image-20231119220940508](./images/image-20231119220940508.png)
 
 ### 2、插入数据
 

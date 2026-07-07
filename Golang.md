@@ -59,6 +59,45 @@ go install
 
 [docs](https://pkg.go.dev/)
 
+### 6、多版本管理
+
+```bash
+# goenv
+brew install goenv
+
+# 查看版本
+goenv --version
+
+# 查看可安装版本
+goenv install -l
+
+# 安装
+goenv install 1.24.5
+
+# 卸载
+goenv uninstall 1.24.5
+
+# 设置全局版本
+goenv global 1.24.5
+
+# 设置项目版本
+goenv local 1.23.8
+
+# 当前终端临时使用
+goenv shell 1.24.5
+
+# 查看真正执行的 Go
+goenv which go
+
+# 查看 shim
+which go
+
+# 重建 shim
+goenv rehash
+```
+
+
+
 ## 二、插件的使用
 
 ### 1、fresh 运行项目

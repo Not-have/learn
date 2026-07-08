@@ -978,6 +978,187 @@ sudo systemctl status mysqld
 
 ![image-20250727012857743](./images/image-20250727012857743.png)
 
+### 3、安装
+
+#### 1）Alibaba Cloud Linux 3.2104 LTS 64位 
+
+```bash
+[root@iZuf6j048vcl5t2h4hx6j2Z /]# sudo dnf install -y mysql-community-server
+Last metadata expiration check: 0:04:15 ago on Mon 06 Jul 2026 06:29:02 PM CST.
+No match for argument: mysql-community-server
+Error: Unable to find a match: mysql-community-server
+[root@iZuf6j048vcl5t2h4hx6j2Z /]# sudo dnf install -y compat-openssl10 dnf-plugins-core
+Last metadata expiration check: 0:04:50 ago on Mon 06 Jul 2026 06:29:02 PM CST.
+Package dnf-plugins-core-4.0.21-25.1.al8.noarch is already installed.
+Dependencies resolved.
+=============================================================================================================================================================================================================================================
+ Package                                                    Architecture                                     Version                                                         Repository                                                 Size
+=============================================================================================================================================================================================================================================
+Installing:
+ compat-openssl10                                           x86_64                                           1:1.0.2o-4.0.2.al8.2                                            alinux3-updates                                           1.1 M
+
+Transaction Summary
+=============================================================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 1.1 M
+Installed size: 2.9 M
+Downloading Packages:
+compat-openssl10-1.0.2o-4.0.2.al8.2.x86_64.rpm                                                                                                                                                                13 MB/s | 1.1 MB     00:00    
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                                         13 MB/s | 1.1 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                                                                                     1/1 
+  Installing       : compat-openssl10-1:1.0.2o-4.0.2.al8.2.x86_64                                                                                                                                                                        1/1 
+  Running scriptlet: compat-openssl10-1:1.0.2o-4.0.2.al8.2.x86_64                                                                                                                                                                        1/1 
+  Verifying        : compat-openssl10-1:1.0.2o-4.0.2.al8.2.x86_64                                                                                                                                                                        1/1 
+
+Installed:
+  compat-openssl10-1:1.0.2o-4.0.2.al8.2.x86_64                                                                                                                                                                                               
+
+Complete!
+[root@iZuf6j048vcl5t2h4hx6j2Z /]# sudo dnf install -y mysql-server
+Last metadata expiration check: 0:05:17 ago on Mon 06 Jul 2026 06:29:02 PM CST.
+Dependencies resolved.
+=============================================================================================================================================================================================================================================
+ Package                                                             Architecture                                  Version                                                      Repository                                              Size
+=============================================================================================================================================================================================================================================
+Installing:
+ mysql-server                                                        x86_64                                        8.0.45-1.0.1.1.al8                                           alinux3-updates                                         33 M
+Installing dependencies:
+ checkpolicy                                                         x86_64                                        2.9-1.2.al8                                                  alinux3-os                                             348 k
+ mariadb-connector-c-config                                          noarch                                        3.2.6-1.0.1.al8                                              alinux3-updates                                         18 k
+ mecab                                                               x86_64                                        0.996-2.al8                                                  alinux3-updates                                        385 k
+ mysql                                                               x86_64                                        8.0.45-1.0.1.1.al8                                           alinux3-updates                                         15 M
+ mysql-common                                                        x86_64                                        8.0.45-1.0.1.1.al8                                           alinux3-updates                                        137 k
+ mysql-errmsg                                                        x86_64                                        8.0.45-1.0.1.1.al8                                           alinux3-updates                                        645 k
+ policycoreutils-python-utils                                        noarch                                        2.9-26.al8                                                   alinux3-updates                                        254 k
+ protobuf-lite                                                       x86_64                                        3.5.0-15.al8                                                 alinux3-updates                                        153 k
+ python3-audit                                                       x86_64                                        3.1.2-1.0.2.al8                                              alinux3-updates                                         87 k
+ python3-libsemanage                                                 x86_64                                        2.9-12.0.1.al8                                               alinux3-updates                                        125 k
+ python3-policycoreutils                                             noarch                                        2.9-26.al8                                                   alinux3-updates                                        2.3 M
+ python3-setools                                                     x86_64                                        4.3.0-5.al8                                                  alinux3-updates                                        652 k
+
+Transaction Summary
+=============================================================================================================================================================================================================================================
+Install  13 Packages
+
+Total download size: 52 M
+Installed size: 257 M
+Downloading Packages:
+(1/13): mariadb-connector-c-config-3.2.6-1.0.1.al8.noarch.rpm                                                                                                                                                520 kB/s |  18 kB     00:00    
+(2/13): checkpolicy-2.9-1.2.al8.x86_64.rpm                                                                                                                                                                   6.7 MB/s | 348 kB     00:00    
+(3/13): mecab-0.996-2.al8.x86_64.rpm                                                                                                                                                                         6.0 MB/s | 385 kB     00:00    
+(4/13): mysql-common-8.0.45-1.0.1.1.al8.x86_64.rpm                                                                                                                                                           3.2 MB/s | 137 kB     00:00    
+(5/13): mysql-errmsg-8.0.45-1.0.1.1.al8.x86_64.rpm                                                                                                                                                            10 MB/s | 645 kB     00:00    
+(6/13): policycoreutils-python-utils-2.9-26.al8.noarch.rpm                                                                                                                                                    16 MB/s | 254 kB     00:00    
+(7/13): mysql-8.0.45-1.0.1.1.al8.x86_64.rpm                                                                                                                                                                   54 MB/s |  15 MB     00:00    
+(8/13): protobuf-lite-3.5.0-15.al8.x86_64.rpm                                                                                                                                                                906 kB/s | 153 kB     00:00    
+(9/13): python3-audit-3.1.2-1.0.2.al8.x86_64.rpm                                                                                                                                                             8.6 MB/s |  87 kB     00:00    
+(10/13): python3-libsemanage-2.9-12.0.1.al8.x86_64.rpm                                                                                                                                                       8.7 MB/s | 125 kB     00:00    
+(11/13): python3-policycoreutils-2.9-26.al8.noarch.rpm                                                                                                                                                        42 MB/s | 2.3 MB     00:00    
+(12/13): python3-setools-4.3.0-5.al8.x86_64.rpm                                                                                                                                                               12 MB/s | 652 kB     00:00    
+(13/13): mysql-server-8.0.45-1.0.1.1.al8.x86_64.rpm                                                                                                                                                           16 MB/s |  33 MB     00:02    
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                                         24 MB/s |  52 MB     00:02     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                                                                                     1/1 
+  Installing       : mariadb-connector-c-config-3.2.6-1.0.1.al8.noarch                                                                                                                                                                  1/13 
+  Installing       : mysql-common-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                             2/13 
+  Installing       : mysql-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                                    3/13 
+  Installing       : mysql-errmsg-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                             4/13 
+  Installing       : python3-setools-4.3.0-5.al8.x86_64                                                                                                                                                                                 5/13 
+  Installing       : python3-libsemanage-2.9-12.0.1.al8.x86_64                                                                                                                                                                          6/13 
+  Installing       : python3-audit-3.1.2-1.0.2.al8.x86_64                                                                                                                                                                               7/13 
+  Installing       : protobuf-lite-3.5.0-15.al8.x86_64                                                                                                                                                                                  8/13 
+  Installing       : mecab-0.996-2.al8.x86_64                                                                                                                                                                                           9/13 
+  Running scriptlet: mecab-0.996-2.al8.x86_64                                                                                                                                                                                           9/13 
+  Installing       : checkpolicy-2.9-1.2.al8.x86_64                                                                                                                                                                                    10/13 
+  Installing       : python3-policycoreutils-2.9-26.al8.noarch                                                                                                                                                                         11/13 
+  Installing       : policycoreutils-python-utils-2.9-26.al8.noarch                                                                                                                                                                    12/13 
+  Running scriptlet: mysql-server-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                            13/13 
+  Installing       : mysql-server-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                            13/13 
+  Running scriptlet: mysql-server-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                            13/13 
+
+File context for /var/log/mysql(/.*)? already defined, modifying instead
+
+[/etc/tmpfiles.d/tpm2-tss-fapi.conf:3] Line references path below legacy directory /var/run/, updating /var/run/tpm2-tss/eventlog → /run/tpm2-tss/eventlog; please update the tmpfiles.d/ drop-in file accordingly.
+
+  Verifying        : checkpolicy-2.9-1.2.al8.x86_64                                                                                                                                                                                     1/13 
+  Verifying        : mariadb-connector-c-config-3.2.6-1.0.1.al8.noarch                                                                                                                                                                  2/13 
+  Verifying        : mecab-0.996-2.al8.x86_64                                                                                                                                                                                           3/13 
+  Verifying        : mysql-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                                    4/13 
+  Verifying        : mysql-common-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                             5/13 
+  Verifying        : mysql-errmsg-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                             6/13 
+  Verifying        : mysql-server-8.0.45-1.0.1.1.al8.x86_64                                                                                                                                                                             7/13 
+  Verifying        : policycoreutils-python-utils-2.9-26.al8.noarch                                                                                                                                                                     8/13 
+  Verifying        : protobuf-lite-3.5.0-15.al8.x86_64                                                                                                                                                                                  9/13 
+  Verifying        : python3-audit-3.1.2-1.0.2.al8.x86_64                                                                                                                                                                              10/13 
+  Verifying        : python3-libsemanage-2.9-12.0.1.al8.x86_64                                                                                                                                                                         11/13 
+  Verifying        : python3-policycoreutils-2.9-26.al8.noarch                                                                                                                                                                         12/13 
+  Verifying        : python3-setools-4.3.0-5.al8.x86_64                                                                                                                                                                                13/13 
+
+Installed:
+  checkpolicy-2.9-1.2.al8.x86_64                mariadb-connector-c-config-3.2.6-1.0.1.al8.noarch     mecab-0.996-2.al8.x86_64                           mysql-8.0.45-1.0.1.1.al8.x86_64       mysql-common-8.0.45-1.0.1.1.al8.x86_64    
+  mysql-errmsg-8.0.45-1.0.1.1.al8.x86_64        mysql-server-8.0.45-1.0.1.1.al8.x86_64                policycoreutils-python-utils-2.9-26.al8.noarch     protobuf-lite-3.5.0-15.al8.x86_64     python3-audit-3.1.2-1.0.2.al8.x86_64      
+  python3-libsemanage-2.9-12.0.1.al8.x86_64     python3-policycoreutils-2.9-26.al8.noarch             python3-setools-4.3.0-5.al8.x86_64                
+
+Complete!
+[root@iZuf6j048vcl5t2h4hx6j2Z /]# 
+[root@iZuf6j048vcl5t2h4hx6j2Z /]# sudo grep 'temporary password' /var/log/mysqld.log
+grep: /var/log/mysqld.log: No such file or directory
+[root@iZuf6j048vcl5t2h4hx6j2Z /]# sudo systemctl enable --now mysqld
+Created symlink /etc/systemd/system/multi-user.target.wants/mysqld.service → /usr/lib/systemd/system/mysqld.service.
+[root@iZuf6j048vcl5t2h4hx6j2Z /]# sudo systemctl status mysqld --no-pager
+● mysqld.service - MySQL 8.0 database server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2026-07-06 18:37:52 CST; 26s ago
+  Process: 14729 ExecStartPost=/usr/libexec/mysql-check-upgrade (code=exited, status=0/SUCCESS)
+  Process: 14591 ExecStartPre=/usr/libexec/mysql-prepare-db-dir mysqld.service (code=exited, status=0/SUCCESS)
+  Process: 14563 ExecStartPre=/usr/libexec/mysql-check-socket (code=exited, status=0/SUCCESS)
+ Main PID: 14684 (mysqld)
+   Status: "Server is operational"
+    Tasks: 38 (limit: 11714)
+   Memory: 476.8M
+   CGroup: /system.slice/mysqld.service
+           └─14684 /usr/libexec/mysqld --basedir=/usr
+
+Jul 06 18:37:44 iZuf6j048vcl5t2h4hx6j2Z systemd[1]: Starting MySQL 8.0 database server...
+Jul 06 18:37:44 iZuf6j048vcl5t2h4hx6j2Z mysql-prepare-db-dir[14591]: Initializing MySQL database
+Jul 06 18:37:52 iZuf6j048vcl5t2h4hx6j2Z systemd[1]: Started MySQL 8.0 database server.
+[root@iZuf6j048vcl5t2h4hx6j2Z /]# sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.45 Source distribution
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> ALTER USER 'root'@'localhost'
+    -> 
+    -> IDENTIFIED WITH caching_sha2_password BY 'Xxx89@qq.com';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> xit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'xit' at line 1
+mysql> exit;
+Bye
+[root@iZuf6j048vcl5t2h4hx6j2Z /]#
+```
+
 ## 十、mac 安装
 
 ### 1、下载

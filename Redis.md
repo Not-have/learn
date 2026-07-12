@@ -146,3 +146,96 @@ Redis hash 是一个 string 类型的 field 和 value 的映射表，hash 特别
 删除全部数据: flushall
 ```
 
+## 三、Linux
+
+```bash
+# 查看型号
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# cat /etc/os-release
+NAME="Alibaba Cloud Linux"
+VERSION="3 (OpenAnolis Edition)"
+ID="alinux"
+ID_LIKE="rhel fedora centos anolis"
+VERSION_ID="3"
+VARIANT="OpenAnolis Edition"
+VARIANT_ID="openanolis"
+ALINUX_MINOR_ID="2104"
+ALINUX_UPDATE_ID="13.1"
+PLATFORM_ID="platform:al8"
+PRETTY_NAME="Alibaba Cloud Linux 3.2104 U13.1 (OpenAnolis Edition)"
+ANSI_COLOR="0;31"
+HOME_URL="https://www.aliyun.com/"
+
+
+#先直接尝试系统仓库：
+dnf makecache
+dnf install -y redis
+```
+
+### 1、检查
+
+```bash
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# redis-cli ping
+Could not connect to Redis at 127.0.0.1:6379: Connection refused
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# systemctl start redis
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# systemctl status redis --no-pager
+● redis.service - Redis persistent key-value database
+   Loaded: loaded (/usr/lib/systemd/system/redis.service; disabled; vendor preset: disabled)
+  Drop-In: /etc/systemd/system/redis.service.d
+           └─limit.conf
+   Active: active (running) since Tue 2026-07-07 23:29:57 CST; 17s ago
+ Main PID: 18236 (redis-server)
+   Status: "Ready to accept connections"
+    Tasks: 5 (limit: 11714)
+   Memory: 6.9M
+   CGroup: /system.slice/redis.service
+           └─18236 /usr/bin/redis-server 127.0.0.1:6379
+
+Jul 07 23:29:57 iZuf6j048vcl5t2h4hx6j2Z systemd[1]: Starting Redis persistent key-value database...
+Jul 07 23:29:57 iZuf6j048vcl5t2h4hx6j2Z systemd[1]: Started Redis persistent key-value database.
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# redis-cli ping
+PONG
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# 
+```
+
+### 2、设置密码
+
+```bash
+# 检查
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# rpm -ql redis | grep redis.conf
+/etc/redis.conf
+/usr/share/man/man5/redis.conf.5.gz
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# 
+
+
+# 编辑
+vi /etc/redis.conf
+# 新增
+requirepass 你的强密码
+
+# 重启
+systemctl restart redis
+
+# 检查密码
+
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# redis-cli -a '密码' ping
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+PONG
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]#
+
+
+# 取消删除 
+requirepass 你的强密码
+# 检查
+redis-cli ping
+
+```
+
+### 3、查看端口
+
+```bash
+[root@iZuf6j048vcl5t2h4hx6j2Z ~]# ss -lntp | grep redis
+LISTEN 0      511        127.0.0.1:6379       0.0.0.0:*    users:(("redis-server",pid=18485,fd=6))
+LISTEN 0      511            [::1]:6379     
+
+```
+

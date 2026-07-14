@@ -12,7 +12,7 @@ start nginx
 # 或 nginx.exe
 ```
 
-②地址：http://localhost:80
+②地址：<http://localhost:80>
 
 ③停止指令：
 
@@ -40,7 +40,7 @@ worker_processes  1;
 #pid        logs/nginx.pid;
 
 events {
-	# 指定每个 worker 进程可以同时处理的最大连接数
+ # 指定每个 worker 进程可以同时处理的最大连接数
     worker_connections  1024;
 }
 
@@ -48,20 +48,20 @@ http {
     include       mime.types;
     default_type  application/octet-stream;
 
-	# 提高文件传输的效率，特别是对于大文件来说
+ # 提高文件传输的效率，特别是对于大文件来说
     sendfile        on;
     # 用于减少网络传输中的数据包数量，通过将多个小数据包合并成一个大数据包来提高网络传输的效率
     tcp_nopush     on;
 
-	# 指定了空闲连接的超时时间，即客户端和服务器之间保持连接的最长时间
-	# 在这里，连接在 65 秒内没有任何活动就会被关闭。通过调整此值，您可以控制服务器上空闲连接的数量，以及资源的有效利用程度
+ # 指定了空闲连接的超时时间，即客户端和服务器之间保持连接的最长时间
+ # 在这里，连接在 65 秒内没有任何活动就会被关闭。通过调整此值，您可以控制服务器上空闲连接的数量，以及资源的有效利用程度
     keepalive_timeout  65;
 
-	# 启用 HTTP 响应的压缩功能，以减少传输的数据量，提高网络传输效率
+ # 启用 HTTP 响应的压缩功能，以减少传输的数据量，提高网络传输效率
     gzip  on;
 
     server {
-    	端口
+     端口
         listen       8099;
         server_name  localhost;
         
@@ -130,7 +130,7 @@ fetch('/data')
     })
 ```
 
-## 二、Mac 
+## 二、Mac
 
 ### 1、基本指令
 
@@ -259,5 +259,3 @@ child-react-app-03  child-vue-app-02
 ```
 
 ![image-20250812000112557](./images/image-20250812000112557.png)
-
-

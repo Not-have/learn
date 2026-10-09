@@ -1,0 +1,40 @@
+name: 触发文档部署
+
+# 当前仓库的 main 分支收到 push（包括合并 PR）后触发。
+on:
+  push:
+    branches:
+      - main
+
+# 本工作流只需读取当前仓库内容；跨仓库权限由下方的 PAT 提供。
+permissions:
+  contents: read
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 触发文档部署流水线
+        # DOCS_WORKFLOW_TOKEN 必须配置在当前仓库的 Actions Secrets 中。
+        # 该 Fine-grained PAT 需要对 micro-scaff/micro-scaff.github.io
+        # 拥有 Actions: Read and write 权限。
+        env:
+          DOCS_WORKFLOW_TOKEN: ${{ secrets.DOCS_WORKFLOW_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # Secret 未配置时主动给出清晰错误，避免只看到 GitHub API 的 401 响应。
+          if [ -z "$DOCS_WORKFLOW_TOKEN" ]; then
+            echo "::error::Repository secret DOCS_WORKFLOW_TOKEN is not configured."
+            exit 1
+          fi
+
+          # 调用目标仓库的 workflow_dispatch API。
+          # docs.yml 中已经声明 workflow_dispatch；ref 指定目标 workflow 使用 main 分支版本。
+          curl --fail-with-body \
+            --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $DOCS_WORKFLOW_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --url "https://api.github.com/repos/micro-scaff/micro-scaff.github.io/actions/workflows/docs.yml/dispatches" \
+            --data '{"ref":"main"}'

@@ -1,0 +1,346 @@
+name: 历史文档 PR 校验
+
+on:
+  pull_request:
+
+# Fork PR 只能获得只读 Token。校验过程不检出、安装或执行投稿分支中的代码。
+permissions:
+  contents: read
+
+jobs:
+  validate-history-document-pr:
+    name: 历史文档 PR 校验
+    runs-on: ubuntu-latest
+    steps:
+      - name: 校验 Markdown 和图片变更
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const pullNumber = context.payload.pull_request.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const headOwner = context.payload.pull_request.head.repo.owner.login;
+            const headRepo = context.payload.pull_request.head.repo.name;
+            const fail = (message) => core.setFailed(message);
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number: pullNumber,
+              per_page: 100,
+            });
+
+            const historyFiles = files.filter((file) =>
+              /^history\/(?:[^/]+\.md|images\/)/i.test(file.filename),
+            );
+            if (historyFiles.length === 0) {
+              core.info("本 PR 不包含历史文档变更，无需执行历史文档专项校验。");
+              return;
+            }
+
+            const markdownFiles = files.filter((file) =>
+              /^history\/[^/]+\.md$/i.test(file.filename),
+            );
+
+            if (markdownFiles.length !== 1) {
+              fail(`PR 必须且只能新增 1 个 history/*.md，当前为 ${markdownFiles.length} 个。`);
+              return;
+            }
+
+            const markdownFile = markdownFiles[0];
+            const filenamePattern =
+              /^history\/(\d{4}-\d{2}-\d{2}-\d{6}-[a-z0-9]+(?:-[a-z0-9]+)*-\d+)\.md$/;
+            const filenameMatch = markdownFile.filename.match(filenamePattern);
+
+            if (!filenameMatch) {
+              fail("Markdown 文件名必须符合 history/YYYY-MM-DD-HHmmss-<slug>-<issue-number>.md。 ");
+              return;
+            }
+
+            if (markdownFile.status !== "added") {
+              fail("历史 Markdown 只能新增，不能修改、改名或删除已有文件。");
+              return;
+            }
+
+            const documentStem = filenameMatch[1];
+            const imagePrefix = `history/images/${documentStem}/`;
+            const imagePattern = /\.(?:png|jpe?g|gif|webp)$/i;
+            const imageFiles = files.filter((file) => file.filename.startsWith(imagePrefix));
+
+            const unexpectedFiles = files.filter((file) => {
+              if (file.filename === markdownFile.filename) return false;
+              return !(file.filename.startsWith(imagePrefix) && imagePattern.test(file.filename));
+            });
+
+            if (unexpectedFiles.length > 0) {
+              fail(
+                `PR 包含不允许的文件：\n${unexpectedFiles
+                  .map((file) => `- ${file.filename} (${file.status})`)
+                  .join("\n")}`,
+              );
+              return;
+            }
+
+            if (files.some((file) => file.status !== "added")) {
+              fail("本 PR 只能新增 Markdown 和专属图片，不能修改、改名或删除任何已有文件。");
+              return;
+            }
+
+            if (imageFiles.length > 20) {
+              fail(`单篇文档最多允许 20 张图片，当前为 ${imageFiles.length} 张。`);
+              return;
+            }
+
+            const getBlob = async (sha) => {
+              const response = await github.rest.git.getBlob({
+                owner: headOwner,
+                repo: headRepo,
+                file_sha: sha,
+              });
+              if (response.data.encoding !== "base64") {
+                throw new Error("GitHub 返回了无法识别的 Blob 编码。");
+              }
+              return Buffer.from(response.data.content.replace(/\n/g, ""), "base64");
+            };
+
+            const markdownBuffer = await getBlob(markdownFile.sha);
+            if (markdownBuffer.length > 1024 * 1024) {
+              fail("Markdown 文件不能超过 1 MB。");
+              return;
+            }
+
+            const markdown = markdownBuffer.toString("utf8");
+            if (Buffer.from(markdown, "utf8").length !== markdownBuffer.length) {
+              fail("Markdown 必须使用 UTF-8 编码。");
+              return;
+            }
+
+            const frontmatterMatch = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+            if (!frontmatterMatch) {
+              fail("Markdown 必须以完整 YAML frontmatter 开头。");
+              return;
+            }
+
+            const frontmatter = frontmatterMatch[1];
+            const requiredKeys = [
+              "title",
+              "author",
+              "createdAt",
+              "documentId",
+              "sourceIssue",
+              "targetRepository",
+              "tags",
+              "sidebar",
+            ];
+            const missingKeys = requiredKeys.filter(
+              (key) => !new RegExp(`^${key}:`, "m").test(frontmatter),
+            );
+            if (missingKeys.length > 0) {
+              fail(`frontmatter 缺少字段：${missingKeys.join(", ")}。`);
+              return;
+            }
+
+            const readScalar = (key) => {
+              const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+?)\\s*$`, "m"));
+              return match ? match[1].replace(/^["']|["']$/g, "").trim() : "";
+            };
+
+            if (!readScalar("title") || !readScalar("author")) {
+              fail("frontmatter 的 title 和 author 不能为空。");
+              return;
+            }
+            if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(readScalar("createdAt"))) {
+              fail("createdAt 必须是包含时区的 ISO 8601 时间。");
+              return;
+            }
+            if (!/^micro-scaff\.github\.io#\d+$/.test(readScalar("documentId"))) {
+              fail("documentId 必须符合 micro-scaff.github.io#<issue-number>。");
+              return;
+            }
+            if (!/^https:\/\/github\.com\/micro-scaff\/micro-scaff\.github\.io\/issues\/\d+$/.test(readScalar("sourceIssue"))) {
+              fail("sourceIssue 必须指向主站仓库中的公开 Issue。");
+              return;
+            }
+            const issueNumber = filenameMatch[1].match(/-(\d+)$/)[1];
+            if (
+              readScalar("documentId") !== `micro-scaff.github.io#${issueNumber}` ||
+              !readScalar("sourceIssue").endsWith(`/issues/${issueNumber}`)
+            ) {
+              fail("文件名、documentId 和 sourceIssue 中的 Issue 编号必须一致。");
+              return;
+            }
+            if (readScalar("targetRepository") !== "Not-have/learn") {
+              fail("targetRepository 必须是 Not-have/learn。");
+              return;
+            }
+            if (readScalar("sidebar") !== "true") {
+              fail("sidebar 必须设置为 true。");
+              return;
+            }
+
+            const body = markdown.slice(frontmatterMatch[0].length);
+            if (!body.trim()) {
+              fail("Markdown 正文不能为空。");
+              return;
+            }
+
+            const forbiddenHtml = /<\/?(?:script|iframe|object|embed|form|input|button|textarea|select|link|meta|style|svg|math|img)\b/i;
+            if (forbiddenHtml.test(body)) {
+              fail("正文包含禁止的 HTML 标签；图片必须使用 Markdown 相对路径语法。");
+              return;
+            }
+            if (/(?:javascript|vbscript|file):/i.test(body)) {
+              fail("正文包含危险链接协议。");
+              return;
+            }
+            if (/!\[[^\]]*\]\[[^\]]*\]/.test(body)) {
+              fail("图片不支持引用式 Markdown 语法，请使用 ![说明](./images/...)。 ");
+              return;
+            }
+
+            const imageReferences = [];
+            const imageReferencePattern = /!\[[^\]]*\]\(\s*<?([^\s)>]+)>?(?:\s+["'][^"']*["'])?\s*\)/g;
+            for (const match of body.matchAll(imageReferencePattern)) {
+              const reference = match[1];
+              if (/^(?:https?:|data:|\/\/|\/)/i.test(reference)) {
+                fail(`图片必须复制到仓库并使用相对路径：${reference}`);
+                return;
+              }
+
+              let decodedReference;
+              try {
+                decodedReference = decodeURIComponent(reference);
+              } catch {
+                fail(`图片路径包含无效的 URL 编码：${reference}`);
+                return;
+              }
+
+              const expectedPrefix = `./images/${documentStem}/`;
+              if (
+                !decodedReference.startsWith(expectedPrefix) ||
+                decodedReference.includes("..") ||
+                decodedReference.includes("\\") ||
+                /[?#]/.test(decodedReference) ||
+                !imagePattern.test(decodedReference)
+              ) {
+                fail(`图片路径必须位于 ${expectedPrefix}：${reference}`);
+                return;
+              }
+              imageReferences.push(`history/${decodedReference.slice(2)}`);
+            }
+
+            const addedImageNames = new Set(imageFiles.map((file) => file.filename));
+            const referencedImageNames = new Set(imageReferences);
+            const missingImages = [...referencedImageNames].filter((name) => !addedImageNames.has(name));
+            const unusedImages = [...addedImageNames].filter((name) => !referencedImageNames.has(name));
+            if (missingImages.length > 0 || unusedImages.length > 0) {
+              fail(
+                [
+                  missingImages.length ? `引用但未新增：${missingImages.join(", ")}` : "",
+                  unusedImages.length ? `新增但未引用：${unusedImages.join(", ")}` : "",
+                ]
+                  .filter(Boolean)
+                  .join("\n"),
+              );
+              return;
+            }
+
+            const detectImage = (buffer) => {
+              if (
+                buffer.length >= 24 &&
+                buffer.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
+              ) {
+                return { type: "png", width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+              }
+              if (buffer.length >= 10 && ["GIF87a", "GIF89a"].includes(buffer.toString("ascii", 0, 6))) {
+                return { type: "gif", width: buffer.readUInt16LE(6), height: buffer.readUInt16LE(8) };
+              }
+              if (buffer.length >= 12 && buffer.toString("ascii", 0, 4) === "RIFF" && buffer.toString("ascii", 8, 12) === "WEBP") {
+                const chunk = buffer.toString("ascii", 12, 16);
+                if (chunk === "VP8X" && buffer.length >= 30) {
+                  return {
+                    type: "webp",
+                    width: 1 + buffer.readUIntLE(24, 3),
+                    height: 1 + buffer.readUIntLE(27, 3),
+                  };
+                }
+                if (chunk === "VP8 " && buffer.length >= 30 && buffer[23] === 0x9d && buffer[24] === 0x01 && buffer[25] === 0x2a) {
+                  return {
+                    type: "webp",
+                    width: buffer.readUInt16LE(26) & 0x3fff,
+                    height: buffer.readUInt16LE(28) & 0x3fff,
+                  };
+                }
+                if (chunk === "VP8L" && buffer.length >= 25 && buffer[20] === 0x2f) {
+                  const bits = buffer.readUInt32LE(21);
+                  return {
+                    type: "webp",
+                    width: (bits & 0x3fff) + 1,
+                    height: ((bits >>> 14) & 0x3fff) + 1,
+                  };
+                }
+              }
+              if (buffer.length >= 4 && buffer[0] === 0xff && buffer[1] === 0xd8) {
+                let offset = 2;
+                while (offset + 9 < buffer.length) {
+                  if (buffer[offset] !== 0xff) {
+                    offset += 1;
+                    continue;
+                  }
+                  const marker = buffer[offset + 1];
+                  if ([0xd8, 0xd9].includes(marker)) {
+                    offset += 2;
+                    continue;
+                  }
+                  const length = buffer.readUInt16BE(offset + 2);
+                  if (length < 2 || offset + 2 + length > buffer.length) break;
+                  if ((marker >= 0xc0 && marker <= 0xc3) || (marker >= 0xc5 && marker <= 0xc7) || (marker >= 0xc9 && marker <= 0xcb) || (marker >= 0xcd && marker <= 0xcf)) {
+                    return {
+                      type: "jpeg",
+                      width: buffer.readUInt16BE(offset + 7),
+                      height: buffer.readUInt16BE(offset + 5),
+                    };
+                  }
+                  offset += 2 + length;
+                }
+              }
+              return null;
+            };
+
+            let totalImageBytes = 0;
+            for (const imageFile of imageFiles) {
+              const imageBuffer = await getBlob(imageFile.sha);
+              totalImageBytes += imageBuffer.length;
+              if (imageBuffer.length > 5 * 1024 * 1024) {
+                fail(`${imageFile.filename} 超过 5 MB。`);
+                return;
+              }
+              if (totalImageBytes > 30 * 1024 * 1024) {
+                fail("单篇文档的图片总大小不能超过 30 MB。");
+                return;
+              }
+
+              const detected = detectImage(imageBuffer);
+              if (!detected) {
+                fail(`${imageFile.filename} 的文件头或尺寸信息无效。`);
+                return;
+              }
+              const extension = imageFile.filename.split(".").pop().toLowerCase();
+              const normalizedExtension = extension === "jpg" ? "jpeg" : extension;
+              if (normalizedExtension !== detected.type) {
+                fail(`${imageFile.filename} 的扩展名与真实格式不一致。`);
+                return;
+              }
+              if (
+                detected.width <= 0 ||
+                detected.height <= 0 ||
+                detected.width * detected.height > 25_000_000
+              ) {
+                fail(`${imageFile.filename} 的像素尺寸无效或超过 2500 万像素。`);
+                return;
+              }
+            }
+
+            core.info(
+              `校验通过：${markdownFile.filename}，${imageFiles.length} 张图片，${totalImageBytes} 字节。`,
+            );
